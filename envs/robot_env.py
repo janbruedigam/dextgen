@@ -127,7 +127,7 @@ class RobotEnv(gym.GoalEnv):
 
         return obs, reward, done, info
 
-    def reset(self) -> Dict[str, np.ndarray]:
+    def reset(self, **kwargs) -> Dict[str, np.ndarray]:
         """Attempt to reset the simulator.
 
         Since we randomize initial conditions, it is possible to get into a state with numerical
@@ -139,7 +139,10 @@ class RobotEnv(gym.GoalEnv):
         did_reset_sim = False
         while not did_reset_sim:
             did_reset_sim = self._reset_sim()
-        self.goal = self._sample_goal().copy()
+        if self.init_random:
+            self.goal = self._sample_goal().copy()
+        else:
+            self.goal = kwargs["goal"]            
         obs = self._get_obs()
         return obs
 

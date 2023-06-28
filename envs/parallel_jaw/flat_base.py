@@ -1,6 +1,6 @@
 """FlatPJ environment base module."""
 import logging
-from typing import Dict
+from typing import Dict, List, Optional
 
 import numpy as np
 
@@ -19,9 +19,23 @@ class FlatPJBase(FlatBase):
     def __init__(self,
                  object_name: str,
                  model_xml_path: str,
+                 init_random: bool = True,
                  object_size_multiplier: float = 1.,
                  object_size_range: float = 0.,
-                 n_actions: int = 13):
+                 n_actions: int = 13,
+                 initial_qpos = {
+                    "panda_joint1": 0,
+                    "panda_joint2": 0.4,
+                    "panda_joint3": 0.,
+                    "panda_joint4": -2.4,
+                    "panda_joint5": 0,
+                    "panda_joint6": 2.8,
+                    "panda_joint7": 0,
+                    "cube:joint": [.1, -.1, .025, 1., 0, 0, 0],
+                    "cylinder:joint": [-.1, .1, .025, 1., 0, 0, 0],
+                    "sphere:joint": [.1, .1, .025, 1., 0, 0, 0],
+                    "mesh:joint": [-.1, -.1, .025, 1., 0, 0, 0]
+                }):
         """Initialize a flat parallel jaw environment.
 
         Args:
@@ -30,26 +44,15 @@ class FlatPJBase(FlatBase):
             object_size_multiplier: Optional multiplier to change object sizes by a fixed amount.
             object_size_range: Optional range to randomly enlarge/shrink object sizes.
             n_actions: Action dimensionality of the environment.
+            initial_qpos: joint angles of robot and poses of objects
         """
-        initial_qpos = {
-            "panda_joint1": 0,
-            "panda_joint2": 0.4,
-            "panda_joint3": 0.,
-            "panda_joint4": -2.4,
-            "panda_joint5": 0,
-            "panda_joint6": 2.8,
-            "panda_joint7": 0,
-            "cube:joint": [.1, -.1, .025, 1., 0, 0, 0],
-            "cylinder:joint": [-.1, .1, .025, 1., 0, 0, 0],
-            "sphere:joint": [.1, .1, .025, 1., 0, 0, 0],
-            "mesh:joint": [-.1, -.1, .025, 1., 0, 0, 0]
-        }
         super().__init__(
             model_xml_path=model_xml_path,
             gripper_extra_height=0.15,
             initial_qpos=initial_qpos,
             n_actions=n_actions,  # default 13 for 3 pos, 9 rot, 1 gripper
             object_name=object_name,
+            init_random=init_random,
             object_size_multiplier=object_size_multiplier,
             object_size_range=object_size_range)
         self._ctrl_range = self.sim.model.actuator_ctrlrange

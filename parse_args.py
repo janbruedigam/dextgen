@@ -37,6 +37,22 @@ def parse_args() -> argparse.Namespace:
                         help="Number of evaluation runs. Only used for testing",
                         default=10,
                         type=int)
+    parser.add_argument("--init_random",
+                        help="If false, specify initial state and goal",
+                        choices=["y", "n"],
+                        default="y")
+    parser.add_argument("--init_goal",
+                        help="Goal for the object",
+                        default="0,0,0")
+    parser.add_argument("--init_object",
+                        help="Initial pose for the object",
+                        default="0,0,0,1,0,0,0")
+    parser.add_argument("--init_jointangles",
+                        help="Joint angles of the robot arm",
+                        default="0,0,0,0,0,0,0")
+    parser.add_argument("--init_gripper",
+                        help="Finger position for ROS",
+                        default="0")
     args = parser.parse_args()
     expand_args(args)
     return args

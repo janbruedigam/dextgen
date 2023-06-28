@@ -31,9 +31,9 @@ class FlatBase(envs.robot_env.RobotEnv):
                  initial_qpos: dict,
                  n_actions: int,
                  object_name: str,
+                 init_random: bool = True,
                  object_size_multiplier: float = 1.,
-                 object_size_range: float = 0.,
-                 initial_gripper: Optional[List] = None):
+                 object_size_range: float = 0.):
         """Initialize a grasp environment.
 
         Args:
@@ -44,8 +44,8 @@ class FlatBase(envs.robot_env.RobotEnv):
             object_name: Name of the manipulation object in Mujoco
             object_size_multiplier: Optional multiplier to change object sizes by a fixed amount.
             object_size_range: Optional range to randomly enlarge/shrink object sizes.
-            initial_gripper: Default initial gripper joint positions.
         """
+        self.init_random = init_random
         self.gripper_extra_height = gripper_extra_height
         self.gripper_init_pos = None
         self.object_range = np.array([0.1, 0.15])  # Admissible object range from the table center
@@ -58,7 +58,6 @@ class FlatBase(envs.robot_env.RobotEnv):
         self.height_offset = 0.43
         self.goal_max_height = 0.3
         self.initial_qpos = initial_qpos
-        self.initial_gripper = initial_gripper
         self.early_stop_ok = True  # Flag to prevent an early stop
         self._reset_sim_state = None
         self._reset_sim_goal = None
@@ -189,7 +188,10 @@ class FlatBase(envs.robot_env.RobotEnv):
         self.sim.set_state(self.initial_state)
         self._env_setup(self.initial_qpos)  # Rerun env setup to get new start poses for the robot
         # Randomize start position of object
-        object_pose = self._sample_object_pose()
+        if self.init_random:
+            object_pose = self._sample_object_pose()
+        else:
+            object_pose = self.initial_qpos[self.object_name + ":joint"]
         self.sim.data.set_joint_qpos(self.object_name + ":joint", object_pose)
         self.sim.forward()
         return True
@@ -235,17 +237,15 @@ class FlatBase(envs.robot_env.RobotEnv):
         self.sim.forward()
         # Save start positions on first run
         if self.gripper_init_pos is None:
-            self.gripper_init_pos = self.sim.data.get_body_xpos("table0")[:3].copy()
-            self.gripper_init_pos[2] = 0.4 + self.gripper_extra_height  # Table height + offset
+            if self.init_random:
+                self.gripper_init_pos = self.sim.data.get_body_xpos("table0")[:3].copy()
+                self.gripper_init_pos[2] = 0.4 + self.gripper_extra_height  # Table height + offset
+            else:
+                self.gripper_init_pos = self.sim.data.get_body_xpos("robot0:gripper_link")[:3].copy()
         # Move end effector into position
         self._set_gripper_pose()
         # Change object pose
         self._set_object_pose()
-        # Run sim
-        for _ in range(10):
-            if self.initial_gripper:
-                self.sim.data.ctrl[:] = self.initial_gripper
-            self.sim.step()
         # Extract information for sampling goals
         self.gripper_start_pos = self.sim.data.get_site_xpos("robot0:grip").copy()
 
