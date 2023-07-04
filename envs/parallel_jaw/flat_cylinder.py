@@ -7,16 +7,19 @@ import numpy as np
 from envs.parallel_jaw.flat_base import FlatPJBase
 from envs.rotations import quat_mul, axisangle2quat
 
+import envs.init_qpos
+
 MODEL_XML_PATH = str(Path("PJ", "flat_cylinder.xml"))
 
 
 class FlatPJCylinder(FlatPJBase, utils.EzPickle):
     """FlatPJCylinder environment class."""
 
-    def __init__(self,
+    def __init__(self, init_random: bool = True, 
                  p_rot: float = 0.75,
                  object_size_multiplier: float = 1.,
-                 object_size_range: float = 0.):
+                 object_size_range: float = 0., 
+                 initial_qpos = envs.init_qpos.DEFAULT_INITIAL_QPOS_PJ):
         """Initialize a parallel jaw cylinder environment.
 
         Args:
@@ -26,6 +29,8 @@ class FlatPJCylinder(FlatPJBase, utils.EzPickle):
         """
         FlatPJBase.__init__(self,
                             object_name="cylinder",
+                            init_random=init_random,
+                            initial_qpos=initial_qpos,
                             model_xml_path=MODEL_XML_PATH,
                             object_size_multiplier=object_size_multiplier,
                             object_size_range=object_size_range)

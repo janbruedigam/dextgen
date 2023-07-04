@@ -8,6 +8,8 @@ import envs
 from envs.flat_base import FlatBase
 from envs.rotations import mat2quat, mat2embedding
 
+import envs.init_qpos
+
 logger = logging.getLogger(__name__)
 
 
@@ -23,19 +25,7 @@ class FlatPJBase(FlatBase):
                  object_size_multiplier: float = 1.,
                  object_size_range: float = 0.,
                  n_actions: int = 13,
-                 initial_qpos = {
-                    "panda_joint1": 0,
-                    "panda_joint2": 0.4,
-                    "panda_joint3": 0.,
-                    "panda_joint4": -2.4,
-                    "panda_joint5": 0,
-                    "panda_joint6": 2.8,
-                    "panda_joint7": 0,
-                    "cube:joint": [.1, -.1, .025, 1., 0, 0, 0],
-                    "cylinder:joint": [-.1, .1, .025, 1., 0, 0, 0],
-                    "sphere:joint": [.1, .1, .025, 1., 0, 0, 0],
-                    "mesh:joint": [-.1, -.1, .025, 1., 0, 0, 0]
-                }):
+                 initial_qpos = envs.init_qpos.DEFAULT_INITIAL_QPOS_PJ):
         """Initialize a flat parallel jaw environment.
 
         Args:

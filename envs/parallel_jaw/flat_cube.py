@@ -1,11 +1,12 @@
 """FlatPJCube environment module."""
-from typing import Dict, List, Optional
 from pathlib import Path
 
 from gym import utils
 import numpy as np
 
 from envs.parallel_jaw.flat_base import FlatPJBase
+
+import envs.init_qpos
 
 MODEL_XML_PATH = str(Path("PJ", "flat_cube.xml"))
 
@@ -16,19 +17,7 @@ class FlatPJCube(FlatPJBase, utils.EzPickle):
     def __init__(self, init_random: bool = True, 
                  object_size_multiplier: float = 1., 
                  object_size_range: float = 0., 
-                 initial_qpos = {
-                                "panda_joint1": 0,
-                                "panda_joint2": 0.4,
-                                "panda_joint3": 0.,
-                                "panda_joint4": -2.4,
-                                "panda_joint5": 0,
-                                "panda_joint6": 2.8,
-                                "panda_joint7": 0,
-                                "cube:joint": [.1, -.1, .025, 1., 0, 0, 0],
-                                "cylinder:joint": [-.1, .1, .025, 1., 0, 0, 0],
-                                "sphere:joint": [.1, .1, .025, 1., 0, 0, 0],
-                                "mesh:joint": [-.1, -.1, .025, 1., 0, 0, 0]
-                 }):
+                 initial_qpos = envs.init_qpos.DEFAULT_INITIAL_QPOS_PJ):
         """Initialize a parallel jaw cube environment.
 
         Args:

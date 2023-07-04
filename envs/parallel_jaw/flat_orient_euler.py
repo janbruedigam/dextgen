@@ -10,18 +10,21 @@ from envs.parallel_jaw.flat_base import FlatPJBase
 from envs.rotations import embedding2quat, fastembedding2quat, euler2quat, mat2embedding
 from envs.rotations import quat2embedding, quat2mat
 
+import envs.init_qpos
+
 MODEL_XML_PATH = str(Path("PJ", "flat_orient.xml"))
 
 
 class FlatPJOrientEuler(FlatPJBase, utils.EzPickle):
     """FlatPJOrientEuler environment class."""
 
-    def __init__(self,
+    def __init__(self, init_random: bool = True, 
                  object_size_multiplier: float = 1.,
                  object_size_range: float = 0.,
                  angle_reduce_factor: float = 1.25,
                  angle_min_tolerance: float = 0.2,
-                 angle_reduce_performance: float = 0.75):
+                 angle_reduce_performance: float = 0.75, 
+                 initial_qpos = envs.init_qpos.DEFAULT_INITIAL_QPOS_PJ):
         """Initialize a parallel jaw cube environment with additional euler orientation goals.
 
         Args:
@@ -35,6 +38,8 @@ class FlatPJOrientEuler(FlatPJBase, utils.EzPickle):
         self.curr_object_rot = np.array([1, 0, 0, 0])
         FlatPJBase.__init__(self,
                             object_name="cube",
+                            init_random=init_random,
+                            initial_qpos=initial_qpos,
                             model_xml_path=MODEL_XML_PATH,
                             object_size_multiplier=object_size_multiplier,
                             object_size_range=object_size_range,
