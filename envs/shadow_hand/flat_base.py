@@ -10,6 +10,8 @@ import envs
 from envs.flat_base import FlatBase
 from envs.rotations import mat2quat, mat2embedding
 
+import envs.init_qpos
+
 # The eigengrasps are exctracted from joint configurations obtained by fitting the ShadowHand to
 # hand poses from the ContactPose dataset. For more information, see
 # TODO: Make repository public
@@ -17,51 +19,6 @@ with open(Path(__file__).parent / "eigengrasps.json", "r") as f:
     eigengrasps = json.load(f)
     assert all([len(value["joints"]) == 20 for value in eigengrasps.values()])
 EIGENGRASPS = np.array([eigengrasps[str(i)]["joints"] for i in range(len(eigengrasps))])
-
-DEFAULT_INITIAL_QPOS = {
-    "cube:joint": [.1, -.1, .025, 1., 0, 0, 0],  # Grasp objects
-    "cylinder:joint": [-.1, .1, .025, 1., 0, 0, 0],
-    "sphere:joint": [.1, .1, .025, 1., 0, 0, 0],
-    "mesh:joint": [-.1, -.1, .025, 1., 0, 0, 0],
-    # Arm
-    "panda_joint1": 1.5,
-    "panda_joint2": 0.4,
-    "panda_joint3": -1.5,
-    "panda_joint4": -2.,
-    "panda_joint5": 0,
-    "panda_joint6": 2.8,
-    "panda_joint7": 0,
-    # ShadowHand
-    "robot0:WRJ1": -0.1651,
-    "robot0:WRJ0": -0.3197,
-    "robot0:FFJ3": 0.1434,
-    "robot0:FFJ2": 0.3202,
-    "robot0:FFJ1": 0.7126,
-    "robot0:FFJ0": 0.6705,
-    "robot0:MFJ3": 0.0002,
-    "robot0:MFJ2": 0.3152,
-    "robot0:MFJ1": 0.7659,
-    "robot0:MFJ0": 0.7323,
-    "robot0:RFJ3": 0.0003,
-    "robot0:RFJ2": 0.3674,
-    "robot0:RFJ1": 0.7119,
-    "robot0:RFJ0": 0.6699,
-    "robot0:LFJ4": 0.0525,
-    "robot0:LFJ3": -0.1361,
-    "robot0:LFJ2": 0.3987,
-    "robot0:LFJ1": 0.7415,
-    "robot0:LFJ0": 0.7040,
-    "robot0:THJ4": 0.0036,
-    "robot0:THJ3": 0.5506,
-    "robot0:THJ2": -0.0145,
-    "robot0:THJ1": -0.0015,
-    "robot0:THJ0": -0.7894,
-}
-
-DEFAULT_INITIAL_GRIPPER = [
-    -0.1651, -0.3197, 0.1434, 0.3202, 0.7126, 0.0002, 0.3152, 0.7659, 0.0003, 0.3674, 0.7119,
-    0.0525, -0.1361, 0.3987, 0.7415, 0.0036, 0.5506, -0.0145, -0.0015, -0.7894
-]
 
 logger = logging.getLogger(__name__)
 
@@ -75,9 +32,11 @@ class FlatSHBase(FlatBase):
     def __init__(self,
                  object_name: str,
                  model_xml_path: str,
+                 init_random: bool = True,
                  n_eigengrasps: Optional[int] = None,
                  object_size_multiplier: float = 1.,
-                 object_size_range: float = 0.):
+                 object_size_range: float = 0.,
+                 initial_qpos = envs.init_qpos.DEFAULT_INITIAL_QPOS_Barrett):
         """Initialize a flat ShadowHand environment.
 
         Args:
@@ -92,10 +51,12 @@ class FlatSHBase(FlatBase):
         n_actions = 12 + (n_eigengrasps or 20)
         super().__init__(model_xml_path=model_xml_path,
                          gripper_extra_height=0.3,
+                         initial_qpos=initial_qpos,
                          initial_qpos=DEFAULT_INITIAL_QPOS,
                          initial_gripper=DEFAULT_INITIAL_GRIPPER,
                          n_actions=n_actions,
                          object_name=object_name,
+                         init_random=init_random,
                          object_size_multiplier=object_size_multiplier,
                          object_size_range=object_size_range)
         self._ctrl_range = self.sim.model.actuator_ctrlrange

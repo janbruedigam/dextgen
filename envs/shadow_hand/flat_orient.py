@@ -10,19 +10,22 @@ from envs.shadow_hand.flat_base import FlatSHBase
 from envs.rotations import embedding2mat, embedding2quat, fastembedding2quat, quat2embedding
 from envs.rotations import axisangle2quat, mat2quat, quat_mul, mat2embedding
 
+import envs.init_qpos
+
 MODEL_XML_PATH = str(Path("ShadowHand", "flat_orient.xml"))
 
 
 class FlatSHOrient(FlatSHBase, utils.EzPickle):
     """FlatSHOrient environment class."""
 
-    def __init__(self,
+    def __init__(self, init_random: bool = True,
                  n_eigengrasps: Optional[int] = None,
                  object_size_multiplier: float = 1.,
                  object_size_range: float = 0.,
                  angle_reduce_factor: float = 1.25,
                  angle_min_tolerance: float = 0.2,
-                 angle_reduce_performance: float = 0.75):
+                 angle_reduce_performance: float = 0.75, 
+                 initial_qpos = envs.init_qpos.DEFAULT_INITIAL_QPOS_Barrett):
         """Initialize a shadow hand mesh environment with additional orientation goals.
 
         Args:
@@ -37,6 +40,8 @@ class FlatSHOrient(FlatSHBase, utils.EzPickle):
         self.curr_object_rot = np.array([1, 0, 0, 0])
         FlatSHBase.__init__(self,
                             object_name="mesh",
+                            init_random=init_random,
+                            initial_qpos=initial_qpos,
                             model_xml_path=MODEL_XML_PATH,
                             n_eigengrasps=n_eigengrasps,
                             object_size_multiplier=object_size_multiplier,

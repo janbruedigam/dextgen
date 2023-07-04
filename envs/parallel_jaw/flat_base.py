@@ -1,6 +1,6 @@
 """FlatPJ environment base module."""
 import logging
-from typing import Dict, List, Optional
+from typing import Dict
 
 import numpy as np
 

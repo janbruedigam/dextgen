@@ -8,17 +8,20 @@ import numpy as np
 from envs.shadow_hand.flat_base import FlatSHBase
 from envs.rotations import axisangle2quat, quat_mul
 
+import envs.init_qpos
+
 MODEL_XML_PATH = str(Path("ShadowHand", "flat_cylinder.xml"))
 
 
 class FlatSHCylinder(FlatSHBase, utils.EzPickle):
     """FlatSHCylinder environment class."""
 
-    def __init__(self,
+    def __init__(self, init_random: bool = True,
                  n_eigengrasps: Optional[int] = None,
                  p_rot: float = 0.5,
                  object_size_multiplier: float = 1.,
-                 object_size_range: float = 0.):
+                 object_size_range: float = 0., 
+                 initial_qpos = envs.init_qpos.DEFAULT_INITIAL_QPOS_Barrett):
         """Initialize a ShadowHand cylinder environment.
 
         Args:
@@ -29,6 +32,8 @@ class FlatSHCylinder(FlatSHBase, utils.EzPickle):
         """
         FlatSHBase.__init__(self,
                             object_name="cylinder",
+                            init_random=init_random,
+                            initial_qpos=initial_qpos,
                             model_xml_path=MODEL_XML_PATH,
                             n_eigengrasps=n_eigengrasps,
                             object_size_multiplier=object_size_multiplier,
