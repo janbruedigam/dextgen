@@ -1,0 +1,653 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Utility modules &#8212; Dext-Gen 0.1 documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <link rel="shortcut icon" href="../_static/dextgen_logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Acknowledgements" href="../notes/acknowledgements.html" />
+    <link rel="prev" title="Controller" href="control.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/dextgen_logo.png" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/setup.html">
+   Setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/training.html">
+   Training
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/testing.html">
+   Testing
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Environment Documentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../envs/envs.html">
+   envs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../envs/parallel_jaw.html">
+   envs.parallel_jaw
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../envs/barrett_hand.html">
+   envs.barrett_hand
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../envs/shadow_hand.html">
+   envs.shadow_hand
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../envs/seaclear.html">
+   envs.seaclear
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../envs/rotations.html">
+   envs.rotations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../envs/utils.html">
+   envs.utils
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Learning Documentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mp_rl/core.html">
+   mp_rl.core
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mp_rl/core.actor.html">
+   core.actor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mp_rl/core.critic.html">
+   core.critic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mp_rl/core.ddpg.html">
+   core.ddpg
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mp_rl/core.noise.html">
+   core.noise
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mp_rl/core.normalizer.html">
+   core.normalizer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mp_rl/core.replay_buffer.html">
+   core.replay_buffer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mp_rl/core.utils.html">
+   core.utils
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Optimization Documentation
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="optim.html">
+   optim
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="core.html">
+   optim.core
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="core.optimizer.html">
+   core.optimizer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="core.interior_point.html">
+   core.interior_point
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="geometry.html">
+   Grasp target objects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="grippers.html">
+   Grippers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="grippers.kinematics.html">
+   Gripper kinematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="objective.html">
+   Objective functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="constraints.html">
+   Constraint functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="control.html">
+   Controller
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Utility modules
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notes/acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/amacati/rl"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/optim/utils.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-optim.utils.utils">
+   optim.utils.utils
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-optim.utils.rotations">
+   optim.utils.rotations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-optim.visualization">
+   optim.visualizations
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Utility modules</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-optim.utils.utils">
+   optim.utils.utils
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-optim.utils.rotations">
+   optim.utils.rotations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-optim.visualization">
+   optim.visualizations
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="section" id="utility-modules">
+<span id="optim-utils"></span><h1>Utility modules<a class="headerlink" href="#utility-modules" title="Permalink to this headline">#</a></h1>
+<p>The utility module contains various convenience functions. A separate visualization module allows for the visual inspection of the optimization setup and results.</p>
+<div class="section" id="module-optim.utils.utils">
+<span id="optim-utils-utils"></span><h2>optim.utils.utils<a class="headerlink" href="#module-optim.utils.utils" title="Permalink to this headline">#</a></h2>
+<p>Utility module.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="optim.utils.utils.filter_info">
+<span class="sig-prename descclassname"><span class="pre">optim.utils.utils.</span></span><span class="sig-name descname"><span class="pre">filter_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#optim.utils.utils.filter_info" title="Permalink to this definition">#</a></dt>
+<dd><p>Filter the contact info of a contact information dictionary.</p>
+<p>Dispatch function for general contact info dicts. Since the gripper type is given as a string
+and not as an object, we do not use a proper singledispatch.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>info</strong> – Contact information dictionary.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The initial gripper configuration for the optimization and the filtered contact info.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>KeyError</strong> – Gripper type is not supported.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="optim.utils.utils.check_grasp">
+<span class="sig-prename descclassname"><span class="pre">optim.utils.utils.</span></span><span class="sig-name descname"><span class="pre">check_grasp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#optim.utils.utils.check_grasp" title="Permalink to this definition">#</a></dt>
+<dd><p>Check if the current grasp constitutes a valid configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>info</strong> – Contact information dictionary.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if the grasp is an optimization initialization candidate, else False.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – Contact info contains an unsupported gripper type.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="optim.utils.utils.import_guard">
+<span class="sig-prename descclassname"><span class="pre">optim.utils.utils.</span></span><span class="sig-name descname"><span class="pre">import_guard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#optim.utils.utils.import_guard" title="Permalink to this definition">#</a></dt>
+<dd><p>Check if type checking is active or sphinx is trying to build the docs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if either type checking is active or sphinx builds the docs, else False.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-optim.utils.rotations">
+<span id="optim-utils-rotations"></span><h2>optim.utils.rotations<a class="headerlink" href="#module-optim.utils.rotations" title="Permalink to this headline">#</a></h2>
+<p>Rotations module to extend the <cite>envs.rotations</cite> module by JAX differentiable conversions.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="optim.utils.rotations.quat2mat">
+<span class="sig-prename descclassname"><span class="pre">optim.utils.rotations.</span></span><span class="sig-name descname"><span class="pre">quat2mat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">jax._src.numpy.ndarray.ndarray</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">jax._src.numpy.ndarray.ndarray</span></span></span><a class="headerlink" href="#optim.utils.rotations.quat2mat" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert a single quaternion to a rotation matrix.</p>
+<p>Reimplementation of <cite>envs.rotations</cite> to make it compatible with JAX automatic differentiation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>q</strong> – Quaternion.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The rotation matrix as JAX array.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-optim.visualization">
+<span id="optim-visualizations"></span><h2>optim.visualizations<a class="headerlink" href="#module-optim.visualization" title="Permalink to this headline">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="optim.visualization.visualize_geometry">
+<span class="sig-prename descclassname"><span class="pre">optim.visualization.</span></span><span class="sig-name descname"><span class="pre">visualize_geometry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="geometry.html#optim.geometry.base_geometry.Geometry" title="optim.geometry.base_geometry.Geometry"><span class="pre">optim.geometry.base_geometry.Geometry</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#optim.visualization.visualize_geometry" title="Permalink to this definition">#</a></dt>
+<dd><p>Visualize dispatch function for geometries.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>geom</strong> – Geometry.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>TypeError</strong> – Default dispatcher means an unsupported geometry has been used.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="optim.visualization.visualize_gripper">
+<span class="sig-prename descclassname"><span class="pre">optim.visualization.</span></span><span class="sig-name descname"><span class="pre">visualize_gripper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gripper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">matplotlib.figure.Figure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'#777777'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">matplotlib.figure.Figure</span></span></span><a class="headerlink" href="#optim.visualization.visualize_gripper" title="Permalink to this definition">#</a></dt>
+<dd><p>Dispatch function for plotting a gripper.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gripper</strong> – Gripper.</p></li>
+<li><p><strong>fig</strong> – Optional figure to plot into.</p></li>
+<li><p><strong>color</strong> – Optional matplotlib compatible color string.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The figure.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>RuntimeError</strong> – Gripper type is not supported.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="optim.visualization.visualize_contacts">
+<span class="sig-prename descclassname"><span class="pre">optim.visualization.</span></span><span class="sig-name descname"><span class="pre">visualize_contacts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">con_pts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">matplotlib.figure.Figure</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">matplotlib.figure.Figure</span></span></span><a class="headerlink" href="#optim.visualization.visualize_contacts" title="Permalink to this definition">#</a></dt>
+<dd><p>Visualize the contact points.</p>
+<p>Only plots into a figure. <cite>plt.show</cite> has to be invoked manually.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>con_pts</strong> – Contact point list.</p></li>
+<li><p><strong>fig</strong> – Optional figure to plot the contact points into. Allows to plot multiple objects.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The figure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="control.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Controller</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../notes/acknowledgements.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Acknowledgements</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Martin Schuck<br/>
+  
+      &copy; Copyright 2022, Martin Schuck.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

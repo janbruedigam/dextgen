@@ -1,0 +1,1346 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index &#8212; Dext-Gen 0.1 documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <link rel="shortcut icon" href="_static/dextgen_logo.png"/>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/dextgen_logo.png" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting_started/setup.html">
+   Setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting_started/training.html">
+   Training
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting_started/testing.html">
+   Testing
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Environment Documentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="envs/envs.html">
+   envs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="envs/parallel_jaw.html">
+   envs.parallel_jaw
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="envs/barrett_hand.html">
+   envs.barrett_hand
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="envs/shadow_hand.html">
+   envs.shadow_hand
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="envs/seaclear.html">
+   envs.seaclear
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="envs/rotations.html">
+   envs.rotations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="envs/utils.html">
+   envs.utils
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Learning Documentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mp_rl/core.html">
+   mp_rl.core
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mp_rl/core.actor.html">
+   core.actor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mp_rl/core.critic.html">
+   core.critic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mp_rl/core.ddpg.html">
+   core.ddpg
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mp_rl/core.noise.html">
+   core.noise
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mp_rl/core.normalizer.html">
+   core.normalizer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mp_rl/core.replay_buffer.html">
+   core.replay_buffer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mp_rl/core.utils.html">
+   core.utils
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Optimization Documentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="optim/optim.html">
+   optim
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="optim/core.html">
+   optim.core
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="optim/core.optimizer.html">
+   core.optimizer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="optim/core.interior_point.html">
+   core.interior_point
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="optim/geometry.html">
+   Grasp target objects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="optim/grippers.html">
+   Grippers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="optim/grippers.kinematics.html">
+   Gripper kinematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="optim/objective.html">
+   Objective functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="optim/constraints.html">
+   Constraint functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="optim/control.html">
+   Controller
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="optim/utils.html">
+   Utility modules
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="notes/acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/amacati/rl"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#_"><strong>_</strong></a>
+ | <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#J"><strong>J</strong></a>
+ | <a href="#K"><strong>K</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#Q"><strong>Q</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ | <a href="#Z"><strong>Z</strong></a>
+ 
+</div>
+<h2 id="_">_</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.actor.html#mp_rl.core.actor.Actor.__call__">__call__() (mp_rl.core.actor.Actor method)</a>
+
+      <ul>
+        <li><a href="mp_rl/core.critic.html#mp_rl.core.critic.Critic.__call__">(mp_rl.core.critic.Critic method)</a>
+</li>
+        <li><a href="mp_rl/core.normalizer.html#mp_rl.core.normalizer.Normalizer.__call__">(mp_rl.core.normalizer.Normalizer method)</a>
+</li>
+        <li><a href="optim/control.html#optim.control.Controller.__call__">(optim.control.Controller method)</a>
+</li>
+      </ul></li>
+      <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.TrajectoryBuffer.__getitem__">__getitem__() (mp_rl.core.replay_buffer.TrajectoryBuffer method)</a>
+</li>
+      <li><a href="mp_rl/core.actor.html#mp_rl.core.actor.Actor.__init__">__init__() (mp_rl.core.actor.Actor method)</a>
+
+      <ul>
+        <li><a href="mp_rl/core.actor.html#mp_rl.core.actor.DDP.__init__">(mp_rl.core.actor.DDP method)</a>
+</li>
+        <li><a href="mp_rl/core.actor.html#mp_rl.core.actor.PosePolicyNet.__init__">(mp_rl.core.actor.PosePolicyNet method)</a>
+</li>
+        <li><a href="mp_rl/core.critic.html#mp_rl.core.critic.Critic.__init__">(mp_rl.core.critic.Critic method)</a>
+</li>
+        <li><a href="mp_rl/core.critic.html#mp_rl.core.critic.CriticNetwork.__init__">(mp_rl.core.critic.CriticNetwork method)</a>
+</li>
+        <li><a href="mp_rl/core.ddpg.html#mp_rl.core.ddpg.DDPG.__init__">(mp_rl.core.ddpg.DDPG method)</a>
+</li>
+        <li><a href="mp_rl/core.noise.html#mp_rl.core.noise.GaussianNoise.__init__">(mp_rl.core.noise.GaussianNoise method)</a>
+</li>
+        <li><a href="mp_rl/core.noise.html#mp_rl.core.noise.NoiseProcess.__init__">(mp_rl.core.noise.NoiseProcess method)</a>
+</li>
+        <li><a href="mp_rl/core.noise.html#mp_rl.core.noise.OrnsteinUhlenbeckNoise.__init__">(mp_rl.core.noise.OrnsteinUhlenbeckNoise method)</a>
+</li>
+        <li><a href="mp_rl/core.noise.html#mp_rl.core.noise.UniformNoise.__init__">(mp_rl.core.noise.UniformNoise method)</a>
+</li>
+        <li><a href="mp_rl/core.normalizer.html#mp_rl.core.normalizer.Normalizer.__init__">(mp_rl.core.normalizer.Normalizer method)</a>
+</li>
+        <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.HERBuffer.__init__">(mp_rl.core.replay_buffer.HERBuffer method)</a>
+</li>
+        <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.MemoryBuffer.__init__">(mp_rl.core.replay_buffer.MemoryBuffer method)</a>
+</li>
+        <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.ReplayBuffer.__init__">(mp_rl.core.replay_buffer.ReplayBuffer method)</a>
+</li>
+        <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.TrajectoryBuffer.__init__">(mp_rl.core.replay_buffer.TrajectoryBuffer method)</a>
+</li>
+        <li><a href="optim/control.html#optim.control.Controller.__init__">(optim.control.Controller method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.TrajectoryBuffer.__iter__">__iter__() (mp_rl.core.replay_buffer.TrajectoryBuffer method)</a>
+</li>
+      <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.HERBuffer.__len__">__len__() (mp_rl.core.replay_buffer.HERBuffer method)</a>
+
+      <ul>
+        <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.MemoryBuffer.__len__">(mp_rl.core.replay_buffer.MemoryBuffer method)</a>
+</li>
+        <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.ReplayBuffer.__len__">(mp_rl.core.replay_buffer.ReplayBuffer method)</a>
+</li>
+        <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.TrajectoryBuffer.__len__">(mp_rl.core.replay_buffer.TrajectoryBuffer method)</a>
+</li>
+      </ul></li>
+      <li><a href="mp_rl/core.actor.html#mp_rl.core.actor.Actor.__weakref__">__weakref__ (mp_rl.core.actor.Actor attribute)</a>
+
+      <ul>
+        <li><a href="mp_rl/core.critic.html#mp_rl.core.critic.Critic.__weakref__">(mp_rl.core.critic.Critic attribute)</a>
+</li>
+        <li><a href="mp_rl/core.ddpg.html#mp_rl.core.ddpg.DDPG.__weakref__">(mp_rl.core.ddpg.DDPG attribute)</a>
+</li>
+        <li><a href="mp_rl/core.noise.html#mp_rl.core.noise.NoiseProcess.__weakref__">(mp_rl.core.noise.NoiseProcess attribute)</a>
+</li>
+        <li><a href="mp_rl/core.normalizer.html#mp_rl.core.normalizer.Normalizer.__weakref__">(mp_rl.core.normalizer.Normalizer attribute)</a>
+</li>
+        <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.ReplayBuffer.__weakref__">(mp_rl.core.replay_buffer.ReplayBuffer attribute)</a>
+</li>
+        <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.TrajectoryBuffer.__weakref__">(mp_rl.core.replay_buffer.TrajectoryBuffer attribute)</a>
+</li>
+        <li><a href="optim/control.html#optim.control.Controller.__weakref__">(optim.control.Controller attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="optim/control.html#optim.control.Controller._check_geom">_check_geom() (optim.control.Controller method)</a>
+</li>
+      <li><a href="optim/control.html#optim.control.Controller._check_reached">_check_reached() (optim.control.Controller method)</a>
+</li>
+      <li><a href="optim/core.optimizer.html#optim.core.optimizer.Optimizer._compile_equality_constraints">_compile_equality_constraints() (optim.core.optimizer.Optimizer method)</a>
+</li>
+      <li><a href="optim/core.optimizer.html#optim.core.optimizer.Optimizer._compile_inequality_constraints">_compile_inequality_constraints() (optim.core.optimizer.Optimizer method)</a>
+</li>
+      <li><a href="optim/control.html#optim.control.Controller._compute_ctrl">_compute_ctrl() (optim.control.Controller method)</a>
+</li>
+      <li><a href="optim/geometry.html#optim.geometry.cube.Cube._contact_mapping">_contact_mapping() (optim.geometry.cube.Cube method)</a>
+</li>
+      <li><a href="mp_rl/core.ddpg.html#mp_rl.core.ddpg.DDPG._train_agent">_train_agent() (mp_rl.core.ddpg.DDPG method)</a>
+</li>
+      <li><a href="mp_rl/core.normalizer.html#mp_rl.core.normalizer.Normalizer._transfer_buffers">_transfer_buffers() (mp_rl.core.normalizer.Normalizer method)</a>
+</li>
+      <li><a href="mp_rl/core.ddpg.html#mp_rl.core.ddpg.DDPG._update_norm">_update_norm() (mp_rl.core.ddpg.DDPG method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.actor.html#mp_rl.core.actor.Actor">Actor (class in mp_rl.core.actor)</a>
+</li>
+      <li><a href="optim/core.optimizer.html#optim.core.optimizer.Optimizer.add_equality_constraint">add_equality_constraint() (optim.core.optimizer.Optimizer method)</a>
+</li>
+      <li><a href="optim/core.optimizer.html#optim.core.optimizer.Optimizer.add_equality_mconstraint">add_equality_mconstraint() (optim.core.optimizer.Optimizer method)</a>
+</li>
+      <li><a href="optim/core.optimizer.html#optim.core.optimizer.Optimizer.add_inequality_constraint">add_inequality_constraint() (optim.core.optimizer.Optimizer method)</a>
+</li>
+      <li><a href="optim/core.optimizer.html#optim.core.optimizer.Optimizer.add_inequality_mconstraint">add_inequality_mconstraint() (optim.core.optimizer.Optimizer method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.HERBuffer.append">append() (mp_rl.core.replay_buffer.HERBuffer method)</a>
+
+      <ul>
+        <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.MemoryBuffer.append">(mp_rl.core.replay_buffer.MemoryBuffer method)</a>
+</li>
+        <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.ReplayBuffer.append">(mp_rl.core.replay_buffer.ReplayBuffer method)</a>
+</li>
+        <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.TrajectoryBuffer.append">(mp_rl.core.replay_buffer.TrajectoryBuffer method)</a>
+</li>
+      </ul></li>
+      <li><a href="envs/rotations.html#envs.rotations.axisangle2quat">axisangle2quat() (in module envs.rotations)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.actor.html#mp_rl.core.actor.Actor.backward_step">backward_step() (mp_rl.core.actor.Actor method)</a>
+
+      <ul>
+        <li><a href="mp_rl/core.critic.html#mp_rl.core.critic.Critic.backward_step">(mp_rl.core.critic.Critic method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="optim/grippers.html#optim.grippers.barrett_hand.BarrettHand">BarrettHand (class in optim.grippers.barrett_hand)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="optim/utils.html#optim.utils.utils.check_grasp">check_grasp() (in module optim.utils.utils)</a>
+</li>
+      <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.MemoryBuffer.clear">clear() (mp_rl.core.replay_buffer.MemoryBuffer method)</a>
+
+      <ul>
+        <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.TrajectoryBuffer.clear">(mp_rl.core.replay_buffer.TrajectoryBuffer method)</a>
+</li>
+      </ul></li>
+      <li><a href="optim/control.html#optim.control.Controller">Controller (class in optim.control)</a>
+</li>
+      <li><a href="optim/geometry.html#optim.geometry.base_geometry.Geometry.create_constraints">create_constraints() (optim.geometry.base_geometry.Geometry method)</a>
+
+      <ul>
+        <li><a href="optim/grippers.html#optim.grippers.base_gripper.Gripper.create_constraints">(optim.grippers.base_gripper.Gripper method)</a>
+</li>
+      </ul></li>
+      <li><a href="optim/objective.html#optim.objective.create_cube_objective">create_cube_objective() (in module optim.objective)</a>
+</li>
+      <li><a href="optim/constraints.html#optim.constraints.create_disk_constraints">create_disk_constraints() (in module optim.constraints)</a>
+</li>
+      <li><a href="optim/constraints.html#optim.constraints.create_distance_constraints">create_distance_constraints() (in module optim.constraints)</a>
+</li>
+      <li><a href="optim/constraints.html#optim.constraints.create_force_constraints">create_force_constraints() (in module optim.constraints)</a>
+</li>
+      <li><a href="optim/grippers.html#optim.grippers.barrett_hand.BarrettHand.create_grasp_wrench">create_grasp_wrench() (optim.grippers.barrett_hand.BarrettHand method)</a>
+
+      <ul>
+        <li><a href="optim/grippers.html#optim.grippers.parallel_jaw.ParallelJaw.create_grasp_wrench">(optim.grippers.parallel_jaw.ParallelJaw method)</a>
+</li>
+        <li><a href="optim/grippers.html#optim.grippers.shadow_hand.ShadowHand.create_grasp_wrench">(optim.grippers.shadow_hand.ShadowHand method)</a>
+</li>
+      </ul></li>
+      <li><a href="optim/grippers.html#optim.grippers.base_gripper.Gripper.create_gripper_constraints">create_gripper_constraints() (optim.grippers.base_gripper.Gripper method)</a>
+
+      <ul>
+        <li><a href="optim/grippers.html#optim.grippers.parallel_jaw.ParallelJaw.create_gripper_constraints">(optim.grippers.parallel_jaw.ParallelJaw method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="optim/grippers.html#optim.grippers.barrett_hand.BarrettHand.create_kinematics">create_kinematics() (optim.grippers.barrett_hand.BarrettHand method)</a>
+
+      <ul>
+        <li><a href="optim/grippers.html#optim.grippers.base_gripper.Gripper.create_kinematics">(optim.grippers.base_gripper.Gripper method)</a>
+</li>
+        <li><a href="optim/grippers.html#optim.grippers.parallel_jaw.ParallelJaw.create_kinematics">(optim.grippers.parallel_jaw.ParallelJaw method)</a>
+</li>
+        <li><a href="optim/grippers.html#optim.grippers.shadow_hand.ShadowHand.create_kinematics">(optim.grippers.shadow_hand.ShadowHand method)</a>
+</li>
+      </ul></li>
+      <li><a href="optim/constraints.html#optim.constraints.create_max_angle_constraints">create_max_angle_constraints() (in module optim.constraints)</a>
+</li>
+      <li><a href="optim/constraints.html#optim.constraints.create_moments_constraints">create_moments_constraints() (in module optim.constraints)</a>
+</li>
+      <li><a href="optim/constraints.html#optim.constraints.create_plane_constraints">create_plane_constraints() (in module optim.constraints)</a>
+</li>
+      <li><a href="optim/constraints.html#optim.constraints.create_sphere_constraint">create_sphere_constraint() (in module optim.constraints)</a>
+</li>
+      <li><a href="optim/geometry.html#optim.geometry.base_geometry.Geometry.create_surface_constraints">create_surface_constraints() (optim.geometry.base_geometry.Geometry method)</a>
+
+      <ul>
+        <li><a href="optim/geometry.html#optim.geometry.cube.Cube.create_surface_constraints">(optim.geometry.cube.Cube method)</a>
+</li>
+      </ul></li>
+      <li><a href="mp_rl/core.critic.html#mp_rl.core.critic.Critic">Critic (class in mp_rl.core.critic)</a>
+</li>
+      <li><a href="mp_rl/core.critic.html#mp_rl.core.critic.CriticNetwork">CriticNetwork (class in mp_rl.core.critic)</a>
+</li>
+      <li><a href="envs/utils.html#envs.utils.ctrl_set_action">ctrl_set_action() (in module envs.utils)</a>
+</li>
+      <li><a href="optim/geometry.html#optim.geometry.cube.Cube">Cube (class in optim.geometry.cube)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.actor.html#mp_rl.core.actor.DDP">DDP (class in mp_rl.core.actor)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.ddpg.html#mp_rl.core.ddpg.DDPG">DDPG (class in mp_rl.core.ddpg)</a>
+</li>
+      <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.default_sampling">default_sampling() (in module mp_rl.core.replay_buffer)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.actor.html#mp_rl.core.actor.PosePolicyNet.embedding2flatmat">embedding2flatmat() (mp_rl.core.actor.PosePolicyNet static method)</a>
+</li>
+      <li><a href="mp_rl/core.actor.html#mp_rl.core.actor.PosePolicyNet.embedding2flatmat_safe">embedding2flatmat_safe() (mp_rl.core.actor.PosePolicyNet static method)</a>
+</li>
+      <li><a href="envs/rotations.html#envs.rotations.embedding2mat">embedding2mat() (in module envs.rotations)</a>
+</li>
+      <li><a href="envs/rotations.html#envs.rotations.embedding2quat">embedding2quat() (in module envs.rotations)</a>
+</li>
+      <li>
+    envs.rotations
+
+      <ul>
+        <li><a href="envs/rotations.html#module-envs.rotations">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    envs.seaclear
+
+      <ul>
+        <li><a href="envs/seaclear.html#module-envs.seaclear">module</a>
+</li>
+      </ul></li>
+      <li>
+    envs.utils
+
+      <ul>
+        <li><a href="envs/utils.html#module-envs.utils">module</a>
+</li>
+      </ul></li>
+      <li><a href="envs/rotations.html#envs.rotations.euler2quat">euler2quat() (in module envs.rotations)</a>
+</li>
+      <li><a href="mp_rl/core.actor.html#mp_rl.core.actor.Actor.eval">eval() (mp_rl.core.actor.Actor method)</a>
+</li>
+      <li><a href="mp_rl/core.ddpg.html#mp_rl.core.ddpg.DDPG.eval_agent">eval_agent() (mp_rl.core.ddpg.DDPG method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="envs/rotations.html#envs.rotations.fastembedding2quat">fastembedding2quat() (in module envs.rotations)</a>
+</li>
+      <li><a href="envs/rotations.html#envs.rotations.fastmat2quat">fastmat2quat() (in module envs.rotations)</a>
+</li>
+      <li><a href="optim/utils.html#optim.utils.utils.filter_info">filter_info() (in module optim.utils.utils)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.actor.html#mp_rl.core.actor.DDP.forward">forward() (mp_rl.core.actor.DDP method)</a>
+
+      <ul>
+        <li><a href="mp_rl/core.actor.html#mp_rl.core.actor.PosePolicyNet.forward">(mp_rl.core.actor.PosePolicyNet method)</a>
+</li>
+        <li><a href="mp_rl/core.critic.html#mp_rl.core.critic.CriticNetwork.forward">(mp_rl.core.critic.CriticNetwork method)</a>
+</li>
+      </ul></li>
+      <li><a href="mp_rl/core.actor.html#mp_rl.core.actor.PosePolicyNet.forward_include_network_output">forward_include_network_output() (mp_rl.core.actor.PosePolicyNet method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.noise.html#mp_rl.core.noise.GaussianNoise">GaussianNoise (class in mp_rl.core.noise)</a>
+</li>
+      <li><a href="optim/geometry.html#optim.geometry.base_geometry.Geometry">Geometry (class in optim.geometry.base_geometry)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.HERBuffer.get_trajectory_buffer">get_trajectory_buffer() (mp_rl.core.replay_buffer.HERBuffer method)</a>
+</li>
+      <li><a href="envs/utils.html#envs.utils.goal_distance">goal_distance() (in module envs.utils)</a>
+</li>
+      <li><a href="optim/grippers.html#optim.grippers.base_gripper.Gripper">Gripper (class in optim.grippers.base_gripper)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.her_sampling">her_sampling() (in module mp_rl.core.replay_buffer)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.HERBuffer">HERBuffer (class in mp_rl.core.replay_buffer)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="optim/utils.html#optim.utils.utils.import_guard">import_guard() (in module optim.utils.utils)</a>
+</li>
+      <li><a href="mp_rl/core.actor.html#mp_rl.core.actor.Actor.init_dist">init_dist() (mp_rl.core.actor.Actor method)</a>
+
+      <ul>
+        <li><a href="mp_rl/core.critic.html#mp_rl.core.critic.Critic.init_dist">(mp_rl.core.critic.Critic method)</a>
+</li>
+        <li><a href="mp_rl/core.ddpg.html#mp_rl.core.ddpg.DDPG.init_dist">(mp_rl.core.ddpg.DDPG method)</a>
+</li>
+        <li><a href="mp_rl/core.normalizer.html#mp_rl.core.normalizer.Normalizer.init_dist">(mp_rl.core.normalizer.Normalizer method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.TrajectoryBuffer.items">items() (mp_rl.core.replay_buffer.TrajectoryBuffer method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="J">J</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="optim/grippers.html#optim.grippers.barrett_hand.BarrettHand.joint_limits">joint_limits (optim.grippers.barrett_hand.BarrettHand property)</a>
+
+      <ul>
+        <li><a href="optim/grippers.html#optim.grippers.base_gripper.Gripper.joint_limits">(optim.grippers.base_gripper.Gripper property)</a>
+</li>
+        <li><a href="optim/grippers.html#optim.grippers.parallel_jaw.ParallelJaw.joint_limits">(optim.grippers.parallel_jaw.ParallelJaw property)</a>
+</li>
+        <li><a href="optim/grippers.html#optim.grippers.shadow_hand.ShadowHand.joint_limits">(optim.grippers.shadow_hand.ShadowHand property)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="K">K</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.TrajectoryBuffer.keys">keys() (mp_rl.core.replay_buffer.TrajectoryBuffer method)</a>
+</li>
+      <li><a href="optim/grippers.kinematics.html#optim.grippers.kinematics.barrett_hand.kin_1dist_p">kin_1dist_p() (in module optim.grippers.kinematics.barrett_hand)</a>
+</li>
+      <li><a href="optim/grippers.kinematics.html#optim.grippers.kinematics.barrett_hand.kin_2dist_p">kin_2dist_p() (in module optim.grippers.kinematics.barrett_hand)</a>
+</li>
+      <li><a href="optim/grippers.kinematics.html#optim.grippers.kinematics.barrett_hand.kin_3dist_p">kin_3dist_p() (in module optim.grippers.kinematics.barrett_hand)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="optim/grippers.kinematics.html#optim.grippers.kinematics.barrett_hand.kin_bh_full">kin_bh_full() (in module optim.grippers.kinematics.barrett_hand)</a>
+</li>
+      <li><a href="optim/grippers.kinematics.html#optim.grippers.kinematics.parallel_jaw.kin_pj_full">kin_pj_full() (in module optim.grippers.kinematics.parallel_jaw)</a>
+</li>
+      <li><a href="optim/grippers.kinematics.html#optim.grippers.kinematics.parallel_jaw.kin_pj_left">kin_pj_left() (in module optim.grippers.kinematics.parallel_jaw)</a>
+</li>
+      <li><a href="optim/grippers.kinematics.html#optim.grippers.kinematics.parallel_jaw.kin_pj_right">kin_pj_right() (in module optim.grippers.kinematics.parallel_jaw)</a>
+</li>
+      <li><a href="optim/grippers.kinematics.html#optim.grippers.kinematics.shadow_hand.kin_sh_full">kin_sh_full() (in module optim.grippers.kinematics.shadow_hand)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="optim/core.interior_point.html#optim.core.interior_point.linesearch">linesearch() (in module optim.core.interior_point)</a>
+</li>
+      <li><a href="mp_rl/core.actor.html#mp_rl.core.actor.Actor.load">load() (mp_rl.core.actor.Actor method)</a>
+
+      <ul>
+        <li><a href="mp_rl/core.critic.html#mp_rl.core.critic.Critic.load">(mp_rl.core.critic.Critic method)</a>
+</li>
+        <li><a href="mp_rl/core.normalizer.html#mp_rl.core.normalizer.Normalizer.load">(mp_rl.core.normalizer.Normalizer method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.ddpg.html#mp_rl.core.ddpg.DDPG.load_pretrained">load_pretrained() (mp_rl.core.ddpg.DDPG method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="envs/rotations.html#envs.rotations.map2pi">map2pi() (in module envs.rotations)</a>
+</li>
+      <li><a href="envs/utils.html#envs.utils.map_sh2mujoco">map_sh2mujoco() (in module envs.utils)</a>
+</li>
+      <li><a href="envs/rotations.html#envs.rotations.mat2embedding">mat2embedding() (in module envs.rotations)</a>
+</li>
+      <li><a href="envs/rotations.html#envs.rotations.mat2euler">mat2euler() (in module envs.rotations)</a>
+</li>
+      <li><a href="envs/rotations.html#envs.rotations.mat2quat">mat2quat() (in module envs.rotations)</a>
+</li>
+      <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.MemoryBuffer">MemoryBuffer (class in mp_rl.core.replay_buffer)</a>
+</li>
+      <li><a href="envs/utils.html#envs.utils.mocap_set_action">mocap_set_action() (in module envs.utils)</a>
+</li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="envs/rotations.html#module-envs.rotations">envs.rotations</a>
+</li>
+        <li><a href="envs/seaclear.html#module-envs.seaclear">envs.seaclear</a>
+</li>
+        <li><a href="envs/utils.html#module-envs.utils">envs.utils</a>
+</li>
+        <li><a href="mp_rl/core.actor.html#module-mp_rl.core.actor">mp_rl.core.actor</a>
+</li>
+        <li><a href="mp_rl/core.critic.html#module-mp_rl.core.critic">mp_rl.core.critic</a>
+</li>
+        <li><a href="mp_rl/core.ddpg.html#module-mp_rl.core.ddpg">mp_rl.core.ddpg</a>
+</li>
+        <li><a href="mp_rl/core.noise.html#module-mp_rl.core.noise">mp_rl.core.noise</a>
+</li>
+        <li><a href="mp_rl/core.normalizer.html#module-mp_rl.core.normalizer">mp_rl.core.normalizer</a>
+</li>
+        <li><a href="mp_rl/core.replay_buffer.html#module-mp_rl.core.replay_buffer">mp_rl.core.replay_buffer</a>
+</li>
+        <li><a href="mp_rl/core.utils.html#module-mp_rl.core.utils">mp_rl.core.utils</a>
+</li>
+        <li><a href="optim/constraints.html#module-optim.constraints">optim.constraints</a>
+</li>
+        <li><a href="optim/control.html#module-optim.control">optim.control</a>
+</li>
+        <li><a href="optim/core.interior_point.html#module-optim.core.interior_point">optim.core.interior_point</a>
+</li>
+        <li><a href="optim/core.optimizer.html#module-optim.core.optimizer">optim.core.optimizer</a>
+</li>
+        <li><a href="optim/geometry.html#module-optim.geometry.base_geometry">optim.geometry.base_geometry</a>
+</li>
+        <li><a href="optim/geometry.html#module-optim.geometry.cube">optim.geometry.cube</a>
+</li>
+        <li><a href="optim/grippers.html#module-optim.grippers.barrett_hand">optim.grippers.barrett_hand</a>
+</li>
+        <li><a href="optim/grippers.html#module-optim.grippers.base_gripper">optim.grippers.base_gripper</a>
+</li>
+        <li><a href="optim/grippers.kinematics.html#module-optim.grippers.kinematics.barrett_hand">optim.grippers.kinematics.barrett_hand</a>
+</li>
+        <li><a href="optim/grippers.kinematics.html#module-optim.grippers.kinematics.parallel_jaw">optim.grippers.kinematics.parallel_jaw</a>
+</li>
+        <li><a href="optim/grippers.kinematics.html#module-optim.grippers.kinematics.shadow_hand">optim.grippers.kinematics.shadow_hand</a>
+</li>
+        <li><a href="optim/grippers.kinematics.html#module-optim.grippers.kinematics.tf">optim.grippers.kinematics.tf</a>
+</li>
+        <li><a href="optim/grippers.html#module-optim.grippers.parallel_jaw">optim.grippers.parallel_jaw</a>
+</li>
+        <li><a href="optim/grippers.html#module-optim.grippers.shadow_hand">optim.grippers.shadow_hand</a>
+</li>
+        <li><a href="optim/objective.html#module-optim.objective">optim.objective</a>
+</li>
+        <li><a href="optim/utils.html#module-optim.utils.rotations">optim.utils.rotations</a>
+</li>
+        <li><a href="optim/utils.html#module-optim.utils.utils">optim.utils.utils</a>
+</li>
+        <li><a href="optim/utils.html#module-optim.visualization">optim.visualization</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    mp_rl.core.actor
+
+      <ul>
+        <li><a href="mp_rl/core.actor.html#module-mp_rl.core.actor">module</a>
+</li>
+      </ul></li>
+      <li>
+    mp_rl.core.critic
+
+      <ul>
+        <li><a href="mp_rl/core.critic.html#module-mp_rl.core.critic">module</a>
+</li>
+      </ul></li>
+      <li>
+    mp_rl.core.ddpg
+
+      <ul>
+        <li><a href="mp_rl/core.ddpg.html#module-mp_rl.core.ddpg">module</a>
+</li>
+      </ul></li>
+      <li>
+    mp_rl.core.noise
+
+      <ul>
+        <li><a href="mp_rl/core.noise.html#module-mp_rl.core.noise">module</a>
+</li>
+      </ul></li>
+      <li>
+    mp_rl.core.normalizer
+
+      <ul>
+        <li><a href="mp_rl/core.normalizer.html#module-mp_rl.core.normalizer">module</a>
+</li>
+      </ul></li>
+      <li>
+    mp_rl.core.replay_buffer
+
+      <ul>
+        <li><a href="mp_rl/core.replay_buffer.html#module-mp_rl.core.replay_buffer">module</a>
+</li>
+      </ul></li>
+      <li>
+    mp_rl.core.utils
+
+      <ul>
+        <li><a href="mp_rl/core.utils.html#module-mp_rl.core.utils">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.noise.html#mp_rl.core.noise.NoiseProcess">NoiseProcess (class in mp_rl.core.noise)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.normalizer.html#mp_rl.core.normalizer.Normalizer.normalize">normalize() (mp_rl.core.normalizer.Normalizer method)</a>
+</li>
+      <li><a href="mp_rl/core.normalizer.html#mp_rl.core.normalizer.Normalizer">Normalizer (class in mp_rl.core.normalizer)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    optim.constraints
+
+      <ul>
+        <li><a href="optim/constraints.html#module-optim.constraints">module</a>
+</li>
+      </ul></li>
+      <li>
+    optim.control
+
+      <ul>
+        <li><a href="optim/control.html#module-optim.control">module</a>
+</li>
+      </ul></li>
+      <li>
+    optim.core.interior_point
+
+      <ul>
+        <li><a href="optim/core.interior_point.html#module-optim.core.interior_point">module</a>
+</li>
+      </ul></li>
+      <li>
+    optim.core.optimizer
+
+      <ul>
+        <li><a href="optim/core.optimizer.html#module-optim.core.optimizer">module</a>
+</li>
+      </ul></li>
+      <li>
+    optim.geometry.base_geometry
+
+      <ul>
+        <li><a href="optim/geometry.html#module-optim.geometry.base_geometry">module</a>
+</li>
+      </ul></li>
+      <li>
+    optim.geometry.cube
+
+      <ul>
+        <li><a href="optim/geometry.html#module-optim.geometry.cube">module</a>
+</li>
+      </ul></li>
+      <li>
+    optim.grippers.barrett_hand
+
+      <ul>
+        <li><a href="optim/grippers.html#module-optim.grippers.barrett_hand">module</a>
+</li>
+      </ul></li>
+      <li>
+    optim.grippers.base_gripper
+
+      <ul>
+        <li><a href="optim/grippers.html#module-optim.grippers.base_gripper">module</a>
+</li>
+      </ul></li>
+      <li>
+    optim.grippers.kinematics.barrett_hand
+
+      <ul>
+        <li><a href="optim/grippers.kinematics.html#module-optim.grippers.kinematics.barrett_hand">module</a>
+</li>
+      </ul></li>
+      <li>
+    optim.grippers.kinematics.parallel_jaw
+
+      <ul>
+        <li><a href="optim/grippers.kinematics.html#module-optim.grippers.kinematics.parallel_jaw">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    optim.grippers.kinematics.shadow_hand
+
+      <ul>
+        <li><a href="optim/grippers.kinematics.html#module-optim.grippers.kinematics.shadow_hand">module</a>
+</li>
+      </ul></li>
+      <li>
+    optim.grippers.kinematics.tf
+
+      <ul>
+        <li><a href="optim/grippers.kinematics.html#module-optim.grippers.kinematics.tf">module</a>
+</li>
+      </ul></li>
+      <li>
+    optim.grippers.parallel_jaw
+
+      <ul>
+        <li><a href="optim/grippers.html#module-optim.grippers.parallel_jaw">module</a>
+</li>
+      </ul></li>
+      <li>
+    optim.grippers.shadow_hand
+
+      <ul>
+        <li><a href="optim/grippers.html#module-optim.grippers.shadow_hand">module</a>
+</li>
+      </ul></li>
+      <li>
+    optim.objective
+
+      <ul>
+        <li><a href="optim/objective.html#module-optim.objective">module</a>
+</li>
+      </ul></li>
+      <li>
+    optim.utils.rotations
+
+      <ul>
+        <li><a href="optim/utils.html#module-optim.utils.rotations">module</a>
+</li>
+      </ul></li>
+      <li>
+    optim.utils.utils
+
+      <ul>
+        <li><a href="optim/utils.html#module-optim.utils.utils">module</a>
+</li>
+      </ul></li>
+      <li>
+    optim.visualization
+
+      <ul>
+        <li><a href="optim/utils.html#module-optim.visualization">module</a>
+</li>
+      </ul></li>
+      <li><a href="optim/core.optimizer.html#optim.core.optimizer.Optimizer.optimize">optimize() (optim.core.optimizer.Optimizer method)</a>
+</li>
+      <li><a href="optim/control.html#optim.control.Controller.optimize_grasp">optimize_grasp() (optim.control.Controller method)</a>
+</li>
+      <li><a href="optim/core.optimizer.html#optim.core.optimizer.Optimizer">Optimizer (class in optim.core.optimizer)</a>
+</li>
+      <li><a href="mp_rl/core.noise.html#mp_rl.core.noise.OrnsteinUhlenbeckNoise">OrnsteinUhlenbeckNoise (class in mp_rl.core.noise)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="optim/grippers.html#optim.grippers.parallel_jaw.ParallelJaw">ParallelJaw (class in optim.grippers.parallel_jaw)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.actor.html#mp_rl.core.actor.PosePolicyNet">PosePolicyNet (class in mp_rl.core.actor)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Q">Q</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="envs/rotations.html#envs.rotations.quat2embedding">quat2embedding() (in module envs.rotations)</a>
+</li>
+      <li><a href="envs/rotations.html#envs.rotations.quat2mat">quat2mat() (in module envs.rotations)</a>
+
+      <ul>
+        <li><a href="optim/utils.html#optim.utils.rotations.quat2mat">(in module optim.utils.rotations)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="envs/rotations.html#envs.rotations.quat_conjugate">quat_conjugate() (in module envs.rotations)</a>
+</li>
+      <li><a href="envs/rotations.html#envs.rotations.quat_mul">quat_mul() (in module envs.rotations)</a>
+</li>
+      <li><a href="optim/constraints.html#optim.constraints.quaternion_cnst">quaternion_cnst() (in module optim.constraints)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.ReplayBuffer">ReplayBuffer (class in mp_rl.core.replay_buffer)</a>
+</li>
+      <li><a href="mp_rl/core.noise.html#mp_rl.core.noise.GaussianNoise.reset">reset() (mp_rl.core.noise.GaussianNoise method)</a>
+
+      <ul>
+        <li><a href="mp_rl/core.noise.html#mp_rl.core.noise.NoiseProcess.reset">(mp_rl.core.noise.NoiseProcess method)</a>
+</li>
+        <li><a href="mp_rl/core.noise.html#mp_rl.core.noise.OrnsteinUhlenbeckNoise.reset">(mp_rl.core.noise.OrnsteinUhlenbeckNoise method)</a>
+</li>
+        <li><a href="mp_rl/core.noise.html#mp_rl.core.noise.UniformNoise.reset">(mp_rl.core.noise.UniformNoise method)</a>
+</li>
+        <li><a href="optim/control.html#optim.control.Controller.reset">(optim.control.Controller method)</a>
+</li>
+        <li><a href="optim/core.optimizer.html#optim.core.optimizer.Optimizer.reset">(optim.core.optimizer.Optimizer method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="envs/utils.html#envs.utils.reset_mocap2body_xpos">reset_mocap2body_xpos() (in module envs.utils)</a>
+</li>
+      <li><a href="envs/utils.html#envs.utils.reset_mocap_welds">reset_mocap_welds() (in module envs.utils)</a>
+</li>
+      <li><a href="envs/utils.html#envs.utils.robot_get_obs">robot_get_obs() (in module envs.utils)</a>
+</li>
+      <li><a href="mp_rl/core.utils.html#mp_rl.core.utils.running_average">running_average() (in module mp_rl.core.utils)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.noise.html#mp_rl.core.noise.GaussianNoise.sample">sample() (mp_rl.core.noise.GaussianNoise method)</a>
+
+      <ul>
+        <li><a href="mp_rl/core.noise.html#mp_rl.core.noise.NoiseProcess.sample">(mp_rl.core.noise.NoiseProcess method)</a>
+</li>
+        <li><a href="mp_rl/core.noise.html#mp_rl.core.noise.OrnsteinUhlenbeckNoise.sample">(mp_rl.core.noise.OrnsteinUhlenbeckNoise method)</a>
+</li>
+        <li><a href="mp_rl/core.noise.html#mp_rl.core.noise.UniformNoise.sample">(mp_rl.core.noise.UniformNoise method)</a>
+</li>
+        <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.HERBuffer.sample">(mp_rl.core.replay_buffer.HERBuffer method)</a>
+</li>
+        <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.MemoryBuffer.sample">(mp_rl.core.replay_buffer.MemoryBuffer method)</a>
+</li>
+        <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.ReplayBuffer.sample">(mp_rl.core.replay_buffer.ReplayBuffer method)</a>
+</li>
+      </ul></li>
+      <li><a href="mp_rl/core.normalizer.html#mp_rl.core.normalizer.Normalizer.save">save() (mp_rl.core.normalizer.Normalizer method)</a>
+</li>
+      <li><a href="mp_rl/core.ddpg.html#mp_rl.core.ddpg.DDPG.save_models">save_models() (mp_rl.core.ddpg.DDPG method)</a>
+</li>
+      <li><a href="mp_rl/core.ddpg.html#mp_rl.core.ddpg.DDPG.save_plots">save_plots() (mp_rl.core.ddpg.DDPG method)</a>
+</li>
+      <li><a href="mp_rl/core.ddpg.html#mp_rl.core.ddpg.DDPG.save_stats">save_stats() (mp_rl.core.ddpg.DDPG method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.actor.html#mp_rl.core.actor.Actor.select_action">select_action() (mp_rl.core.actor.Actor method)</a>
+</li>
+      <li><a href="optim/control.html#optim.control.Controller.set_geom">set_geom() (optim.control.Controller method)</a>
+</li>
+      <li><a href="optim/core.optimizer.html#optim.core.optimizer.Optimizer.set_lower_bounds">set_lower_bounds() (optim.core.optimizer.Optimizer method)</a>
+</li>
+      <li><a href="optim/core.optimizer.html#optim.core.optimizer.Optimizer.set_maxeval">set_maxeval() (optim.core.optimizer.Optimizer method)</a>
+</li>
+      <li><a href="optim/core.optimizer.html#optim.core.optimizer.Optimizer.set_min_objective">set_min_objective() (optim.core.optimizer.Optimizer method)</a>
+</li>
+      <li><a href="optim/core.optimizer.html#optim.core.optimizer.Optimizer.set_upper_bounds">set_upper_bounds() (optim.core.optimizer.Optimizer method)</a>
+</li>
+      <li><a href="optim/control.html#optim.control.Controller.set_xopt">set_xopt() (optim.control.Controller method)</a>
+</li>
+      <li><a href="optim/grippers.html#optim.grippers.shadow_hand.ShadowHand">ShadowHand (class in optim.grippers.shadow_hand)</a>
+</li>
+      <li><a href="mp_rl/core.utils.html#mp_rl.core.utils.soft_update">soft_update() (in module mp_rl.core.utils)</a>
+</li>
+      <li><a href="optim/core.interior_point.html#optim.core.interior_point.solve">solve() (in module optim.core.interior_point)</a>
+</li>
+      <li><a href="mp_rl/core.utils.html#mp_rl.core.utils.sync_grads">sync_grads() (in module mp_rl.core.utils)</a>
+</li>
+      <li><a href="mp_rl/core.utils.html#mp_rl.core.utils.sync_networks">sync_networks() (in module mp_rl.core.utils)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.actor.html#mp_rl.core.actor.Actor.target">target() (mp_rl.core.actor.Actor method)</a>
+
+      <ul>
+        <li><a href="mp_rl/core.critic.html#mp_rl.core.critic.Critic.target">(mp_rl.core.critic.Critic method)</a>
+</li>
+      </ul></li>
+      <li><a href="optim/grippers.kinematics.html#optim.grippers.kinematics.tf.tf_matrix">tf_matrix() (in module optim.grippers.kinematics.tf)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="optim/grippers.kinematics.html#optim.grippers.kinematics.tf.tf_matrix_q">tf_matrix_q() (in module optim.grippers.kinematics.tf)</a>
+</li>
+      <li><a href="mp_rl/core.actor.html#mp_rl.core.actor.Actor.train">train() (mp_rl.core.actor.Actor method)</a>
+
+      <ul>
+        <li><a href="mp_rl/core.ddpg.html#mp_rl.core.ddpg.DDPG.train">(mp_rl.core.ddpg.DDPG method)</a>
+</li>
+      </ul></li>
+      <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.TrajectoryBuffer">TrajectoryBuffer (class in mp_rl.core.replay_buffer)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.noise.html#mp_rl.core.noise.UniformNoise">UniformNoise (class in mp_rl.core.noise)</a>
+</li>
+      <li><a href="mp_rl/core.utils.html#mp_rl.core.utils.unwrap_obs">unwrap_obs() (in module mp_rl.core.utils)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.normalizer.html#mp_rl.core.normalizer.Normalizer.update">update() (mp_rl.core.normalizer.Normalizer method)</a>
+</li>
+      <li><a href="mp_rl/core.actor.html#mp_rl.core.actor.Actor.update_target">update_target() (mp_rl.core.actor.Actor method)</a>
+
+      <ul>
+        <li><a href="mp_rl/core.critic.html#mp_rl.core.critic.Critic.update_target">(mp_rl.core.critic.Critic method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.replay_buffer.html#mp_rl.core.replay_buffer.TrajectoryBuffer.values">values() (mp_rl.core.replay_buffer.TrajectoryBuffer method)</a>
+</li>
+      <li><a href="envs/rotations.html#envs.rotations.vec2quat">vec2quat() (in module envs.rotations)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="optim/utils.html#optim.visualization.visualize_contacts">visualize_contacts() (in module optim.visualization)</a>
+</li>
+      <li><a href="optim/utils.html#optim.visualization.visualize_geometry">visualize_geometry() (in module optim.visualization)</a>
+</li>
+      <li><a href="optim/utils.html#optim.visualization.visualize_gripper">visualize_gripper() (in module optim.visualization)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mp_rl/core.ddpg.html#mp_rl.core.ddpg.DDPG.wrap_obs">wrap_obs() (mp_rl.core.ddpg.DDPG method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Z">Z</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="optim/grippers.kinematics.html#optim.grippers.kinematics.tf.zrot_matrix">zrot_matrix() (in module optim.grippers.kinematics.tf)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Martin Schuck<br/>
+  
+      &copy; Copyright 2022, Martin Schuck.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,621 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>core.noise &#8212; Dext-Gen 0.1 documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <link rel="shortcut icon" href="../_static/dextgen_logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="core.normalizer" href="core.normalizer.html" />
+    <link rel="prev" title="core.ddpg" href="core.ddpg.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/dextgen_logo.png" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/setup.html">
+   Setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/training.html">
+   Training
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/testing.html">
+   Testing
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Environment Documentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../envs/envs.html">
+   envs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../envs/parallel_jaw.html">
+   envs.parallel_jaw
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../envs/barrett_hand.html">
+   envs.barrett_hand
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../envs/shadow_hand.html">
+   envs.shadow_hand
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../envs/seaclear.html">
+   envs.seaclear
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../envs/rotations.html">
+   envs.rotations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../envs/utils.html">
+   envs.utils
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Learning Documentation
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="core.html">
+   mp_rl.core
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="core.actor.html">
+   core.actor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="core.critic.html">
+   core.critic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="core.ddpg.html">
+   core.ddpg
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   core.noise
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="core.normalizer.html">
+   core.normalizer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="core.replay_buffer.html">
+   core.replay_buffer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="core.utils.html">
+   core.utils
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Optimization Documentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../optim/optim.html">
+   optim
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../optim/core.html">
+   optim.core
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../optim/core.optimizer.html">
+   core.optimizer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../optim/core.interior_point.html">
+   core.interior_point
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../optim/geometry.html">
+   Grasp target objects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../optim/grippers.html">
+   Grippers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../optim/grippers.kinematics.html">
+   Gripper kinematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../optim/objective.html">
+   Objective functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../optim/constraints.html">
+   Constraint functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../optim/control.html">
+   Controller
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../optim/utils.html">
+   Utility modules
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notes/acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/amacati/rl"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/mp_rl/core.noise.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>core.noise</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="section" id="module-mp_rl.core.noise">
+<span id="core-noise"></span><span id="mp-rl-core-noise"></span><h1>core.noise<a class="headerlink" href="#module-mp_rl.core.noise" title="Permalink to this headline">#</a></h1>
+<p>Noise process module.</p>
+<p>To support stateful noise with possibly more complex sampling procedures, this module defines an
+abstract <a class="reference internal" href="#mp_rl.core.noise.NoiseProcess" title="mp_rl.core.noise.NoiseProcess"><code class="xref py py-class docutils literal notranslate"><span class="pre">NoiseProcess</span></code></a> class that defines the noise sampling interface for the
+<a class="reference internal" href="core.actor.html#mp_rl.core.actor.Actor" title="mp_rl.core.actor.Actor"><code class="xref py py-class docutils literal notranslate"><span class="pre">mp_rl.core.actor.Actor</span></code></a>.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="mp_rl.core.noise.NoiseProcess">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mp_rl.core.noise.</span></span><span class="sig-name descname"><span class="pre">NoiseProcess</span></span><a class="headerlink" href="#mp_rl.core.noise.NoiseProcess" title="Permalink to this definition">#</a></dt>
+<dd><p>Abstract base class for NoiseProcesses.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mp_rl.core.noise.NoiseProcess.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mp_rl.core.noise.NoiseProcess.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initialize the noise process.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mp_rl.core.noise.NoiseProcess.sample">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#mp_rl.core.noise.NoiseProcess.sample" title="Permalink to this definition">#</a></dt>
+<dd><p>Sample a noise sample from the process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A noise sample array of the noise process’ dimension.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mp_rl.core.noise.NoiseProcess.reset">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mp_rl.core.noise.NoiseProcess.reset" title="Permalink to this definition">#</a></dt>
+<dd><p>Reset internal process states if any.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mp_rl.core.noise.NoiseProcess.__weakref__">
+<span class="sig-name descname"><span class="pre">__weakref__</span></span><a class="headerlink" href="#mp_rl.core.noise.NoiseProcess.__weakref__" title="Permalink to this definition">#</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mp_rl.core.noise.OrnsteinUhlenbeckNoise">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mp_rl.core.noise.</span></span><span class="sig-name descname"><span class="pre">OrnsteinUhlenbeckNoise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dims</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mp_rl.core.noise.OrnsteinUhlenbeckNoise" title="Permalink to this definition">#</a></dt>
+<dd><p>Ornstein Uhlenbeck noise process to generate an N-dimensional noise.</p>
+<p>Noise sampled from this process is correlated with previous samples, which can be useful in RL
+applications.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mp_rl.core.noise.OrnsteinUhlenbeckNoise.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dims</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mp_rl.core.noise.OrnsteinUhlenbeckNoise.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initialize the noise process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dims</strong> – Noise dimension.</p></li>
+<li><p><strong>mu</strong> – Previous noise reduction factor.</p></li>
+<li><p><strong>sigma</strong> – Standard deviation of the gaussian noise in each step.</p></li>
+<li><p><strong>clip</strong> – Optional noise clipping parameter.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mp_rl.core.noise.OrnsteinUhlenbeckNoise.sample">
+<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#mp_rl.core.noise.OrnsteinUhlenbeckNoise.sample" title="Permalink to this definition">#</a></dt>
+<dd><p>Sample from the noise process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A numpy array of noise that is correlated with previous samples.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mp_rl.core.noise.OrnsteinUhlenbeckNoise.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mp_rl.core.noise.OrnsteinUhlenbeckNoise.reset" title="Permalink to this definition">#</a></dt>
+<dd><p>Reset the internal noise process state to start from 0.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mp_rl.core.noise.GaussianNoise">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mp_rl.core.noise.</span></span><span class="sig-name descname"><span class="pre">GaussianNoise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dims</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mp_rl.core.noise.GaussianNoise" title="Permalink to this definition">#</a></dt>
+<dd><p>Standard gaussian noise with uncorrelated samples.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mp_rl.core.noise.GaussianNoise.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dims</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mp_rl.core.noise.GaussianNoise.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initialize the noise process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dims</strong> – Noise dimension.</p></li>
+<li><p><strong>mu</strong> – Gaussian mean.</p></li>
+<li><p><strong>sigma</strong> – Gaussian variance.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mp_rl.core.noise.GaussianNoise.sample">
+<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#mp_rl.core.noise.GaussianNoise.sample" title="Permalink to this definition">#</a></dt>
+<dd><p>Sample from the noise process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A numpy array of gaussian noise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mp_rl.core.noise.GaussianNoise.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mp_rl.core.noise.GaussianNoise.reset" title="Permalink to this definition">#</a></dt>
+<dd><p>Gaussian noise is stateless, reset is a no-op.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mp_rl.core.noise.UniformNoise">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mp_rl.core.noise.</span></span><span class="sig-name descname"><span class="pre">UniformNoise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dims</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mp_rl.core.noise.UniformNoise" title="Permalink to this definition">#</a></dt>
+<dd><p>Uniformly distributed noise with uncorrelated samples.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mp_rl.core.noise.UniformNoise.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dims</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mp_rl.core.noise.UniformNoise.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initialize the noise process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dims</strong> – Noise dimension.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mp_rl.core.noise.UniformNoise.sample">
+<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#mp_rl.core.noise.UniformNoise.sample" title="Permalink to this definition">#</a></dt>
+<dd><p>Sample from the noise process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A numpy array of uniformly distributed noise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mp_rl.core.noise.UniformNoise.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mp_rl.core.noise.UniformNoise.reset" title="Permalink to this definition">#</a></dt>
+<dd><p>Uniform noise is stateless, reset is a no-op.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="core.ddpg.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">core.ddpg</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="core.normalizer.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">core.normalizer</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Martin Schuck<br/>
+  
+      &copy; Copyright 2022, Martin Schuck.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
