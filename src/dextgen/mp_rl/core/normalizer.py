@@ -10,7 +10,7 @@ import pickle
 import numpy as np
 from mpi4py import MPI
 
-from mp_rl.utils import import_guard
+from dextgen.mp_rl.utils import import_guard
 
 if import_guard():
     from pathlib import Path  # noqa: TC003, is guarded

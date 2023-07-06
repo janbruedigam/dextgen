@@ -5,10 +5,10 @@ from pathlib import Path
 
 import numpy as np
 
-import envs
-from envs.flat_base import FlatBase
-from envs.rotations import axisangle2quat, mat2embedding
-from envs.utils import goal_distance
+import dextgen.envs
+from dextgen.envs.flat_base import FlatBase
+from dextgen.envs.rotations import axisangle2quat, mat2embedding
+from dextgen.envs.utils import goal_distance
 
 DEFAULT_MODEL_XML_PATH = str(Path("SeaClear", "seaclear.xml"))
 FANCY_MODEL_XML_PATH = str(Path("SeaClear", "seaclear_fancy.xml"))
@@ -61,13 +61,13 @@ class SeaClear(FlatBase):
         action = np.concatenate([pos_ctrl, rot_ctrl, gripper_ctrl])
 
         # Apply action to simulation.
-        envs.utils.ctrl_set_action(self.sim, action)
-        envs.utils.mocap_set_action(self.sim, action)
+        dextgen.envs.utils.ctrl_set_action(self.sim, action)
+        dextgen.envs.utils.mocap_set_action(self.sim, action)
 
     def _get_obs(self) -> Dict[str, np.ndarray]:
         # positions
         grip_pos = self.sim.data.get_site_xpos("robot0:grip")
-        robot_qpos, robot_qvel = envs.utils.robot_get_obs(self.sim)
+        robot_qpos, robot_qvel = dextgen.envs.utils.robot_get_obs(self.sim)
         object_pos = self.sim.data.get_site_xpos(self.object_name)
         object_rel_pos = object_pos - grip_pos
         # rotations
@@ -202,7 +202,7 @@ class SeaClear(FlatBase):
         return goal
 
     def _is_success(self, achieved_goal: np.ndarray, desired_goal: np.ndarray) -> bool:
-        d = envs.utils.goal_distance(achieved_goal[:3], desired_goal[:3])
+        d = dextgen.envs.utils.goal_distance(achieved_goal[:3], desired_goal[:3])
         success = np.logical_and(d < self.target_threshold, np.logical_not(self._obs_violation))
         return success.astype(np.float32)
 
@@ -210,12 +210,12 @@ class SeaClear(FlatBase):
         self._modify_object_size()
         for name, value in initial_qpos.items():
             # Envs have joint start values for multiple grasp objects. Objects are not present in
-            # all MuJoCo envs to speed up simulation for single grasp object environments. Therefore
+            # all MuJoCo dextgen.envs to speed up simulation for single grasp object environments. Therefore
             # non-existent joints are expected
             if name not in self.sim.model.joint_names:
                 continue
             self.sim.data.set_joint_qpos(name, value)
-        envs.utils.reset_mocap_welds(self.sim)
+        dextgen.envs.utils.reset_mocap_welds(self.sim)
         self.sim.forward()
         # Move end effector into position
         self._set_gripper_pose()

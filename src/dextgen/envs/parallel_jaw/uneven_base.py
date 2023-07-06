@@ -3,8 +3,8 @@ import logging
 
 import numpy as np
 
-import envs
-from envs.parallel_jaw.flat_base import FlatPJBase
+import dextgen.envs
+from dextgen.envs.parallel_jaw.flat_base import FlatPJBase
 
 logger = logging.getLogger(__name__)
 
@@ -35,7 +35,7 @@ class UnevenPJBase(FlatPJBase):
             if name not in self.sim.model.joint_names:
                 continue
             self.sim.data.set_joint_qpos(name, value)
-        envs.utils.reset_mocap_welds(self.sim)
+        dextgen.envs.utils.reset_mocap_welds(self.sim)
         self.sim.forward()
         # Save start positions on first run
         if self.gripper_init_pos is None:

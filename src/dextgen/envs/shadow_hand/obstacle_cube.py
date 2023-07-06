@@ -5,8 +5,8 @@ from pathlib import Path
 import numpy as np
 from gym import utils
 
-from envs.utils import goal_distance
-from envs.shadow_hand.flat_base import FlatSHBase
+from dextgen.envs.utils import goal_distance
+from dextgen.envs.shadow_hand.flat_base import FlatSHBase
 
 MODEL_XML_PATH = str(Path("ShadowHand", "obstacle_cube.xml"))
 

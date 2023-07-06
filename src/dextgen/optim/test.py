@@ -1,5 +1,5 @@
 """Optimization test script with learned initializations."""
-from pathlib import Path
+import os
 import logging
 import pickle
 import time
@@ -9,14 +9,14 @@ import torch
 import numpy as np
 import gym
 import mujoco_py
-import envs  # Import registers environments with gym  # noqa: F401
+import dextgen.envs # Import registers environments with gym  # noqa: F401
 
-from mp_rl.core.actor import PosePolicyNet
-from mp_rl.core.utils import unwrap_obs
-from optim.grippers import get_gripper
+from dextgen.mp_rl.core.actor import PosePolicyNet
+from dextgen.mp_rl.core.utils import unwrap_obs
+from dextgen.optim.grippers import get_gripper
 from parse_args import parse_args
-from optim.utils.utils import check_grasp
-from optim.control import Controller
+from dextgen.optim.utils.utils import check_grasp
+from dextgen.optim.control import Controller
 
 logger = logging.getLogger(__name__)
 
@@ -63,7 +63,7 @@ def main():
     size_s = len(env.observation_space["observation"].low) + size_g
     size_a = len(env.action_space.low)
     actor = PosePolicyNet(size_s, size_a, args.actor_net_nlayers, args.actor_net_layer_width)
-    path = Path(__file__).parent.parent / "saves" / args.env
+    path = os.getcwd()+"/saves/"+args.env
     actor.load_state_dict(torch.load(path / "actor.pt"))
     with open(path / "state_norm.pkl", "rb") as f:
         state_norm = pickle.load(f)

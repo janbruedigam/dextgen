@@ -4,7 +4,7 @@ from typing import Optional
 
 from gym import utils
 
-from envs.shadow_hand.uneven_base import UnevenSHBase
+from dextgen.envs.shadow_hand.uneven_base import UnevenSHBase
 
 MODEL_XML_PATH = str(Path("ShadowHand", "uneven_cube.xml"))
 

@@ -4,7 +4,7 @@ from typing import Dict, List, Optional
 
 import matplotlib.pyplot as plt
 
-from optim.utils.utils import import_guard
+from dextgen.optim.utils.utils import import_guard
 
 if import_guard():
     from matplotlib.figure import Figure  # noqa: TC002, is guarded

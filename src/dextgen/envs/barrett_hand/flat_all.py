@@ -6,8 +6,8 @@ from pathlib import Path
 from gym import utils
 import numpy as np
 
-from envs.barrett_hand.flat_base import FlatBarrettBase
-from envs.rotations import quat_mul, axisangle2quat
+from dextgen.envs.barrett_hand.flat_base import FlatBarrettBase
+from dextgen.envs.rotations import quat_mul, axisangle2quat
 
 MODEL_XML_PATH = str(Path("BarrettHand", "flat_all.xml"))
 

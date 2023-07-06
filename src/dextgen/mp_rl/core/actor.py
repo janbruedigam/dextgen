@@ -20,11 +20,11 @@ import torch
 import torch.nn as nn
 import numpy as np
 
-from mp_rl.core.utils import soft_update, sync_networks, sync_grads
-from mp_rl.utils import import_guard
+from dextgen.mp_rl.core.utils import soft_update, sync_networks, sync_grads
+from dextgen.mp_rl.utils import import_guard
 
 if import_guard():
-    from mp_rl.core.noise import NoiseProcess  # noqa: TC001, is guarded
+    from dextgen.mp_rl.core.noise import NoiseProcess  # noqa: TC001, is guarded
 
 
 class Actor:

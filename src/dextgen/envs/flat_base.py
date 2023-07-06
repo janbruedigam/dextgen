@@ -13,14 +13,14 @@ import copy
 import numpy as np
 import mujoco_py
 
-import envs.rotations
-import envs.robot_env
-import envs.utils
+import dextgen.envs.rotations
+import dextgen.envs.robot_env
+import dextgen.envs.utils
 
 logger = logging.getLogger(__name__)
 
 
-class FlatBase(envs.robot_env.RobotEnv):
+class FlatBase(dextgen.envs.robot_env.RobotEnv):
     """Base class for all grasp environments."""
 
     n_substeps = 20
@@ -81,7 +81,7 @@ class FlatBase(envs.robot_env.RobotEnv):
             goal: Desired goal.
         """
         # Compute distance between goal and the achieved goal.
-        d = envs.utils.goal_distance(achieved_goal[..., :3], goal[..., :3])
+        d = dextgen.envs.utils.goal_distance(achieved_goal[..., :3], goal[..., :3])
         return -(d > self.target_threshold).astype(np.float32)
 
     def _set_action(self, action: np.ndarray):
@@ -123,7 +123,7 @@ class FlatBase(envs.robot_env.RobotEnv):
     def _get_gripper_info(self) -> Dict:
         pos = self.sim.data.get_site_xpos("robot0:grip").copy()
         orient = self.sim.data.get_site_xmat("robot0:grip").copy()
-        robot_qpos, _ = envs.utils.robot_get_obs(self.sim)
+        robot_qpos, _ = dextgen.envs.utils.robot_get_obs(self.sim)
         if self.gripper_type == "ParallelJaw":
             state = robot_qpos[-2:].copy()
         elif self.gripper_type == "BarrettHand":
@@ -221,7 +221,7 @@ class FlatBase(envs.robot_env.RobotEnv):
         return goal.copy()
 
     def _is_success(self, achieved_goal: np.ndarray, desired_goal: np.ndarray) -> bool:
-        d = envs.utils.goal_distance(achieved_goal, desired_goal)
+        d = dextgen.envs.utils.goal_distance(achieved_goal, desired_goal)
         return (d < self.target_threshold).astype(np.float32)
 
     def _env_setup(self, initial_qpos: np.ndarray):
@@ -233,7 +233,7 @@ class FlatBase(envs.robot_env.RobotEnv):
             if name not in self.sim.model.joint_names:
                 continue
             self.sim.data.set_joint_qpos(name, value)
-        envs.utils.reset_mocap_welds(self.sim)
+        dextgen.envs.utils.reset_mocap_welds(self.sim)
         self.sim.forward()
         # Save start positions on first run
         if self.gripper_init_pos is None:

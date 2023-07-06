@@ -6,11 +6,11 @@ from pathlib import Path
 import numpy as np
 import json
 
-import envs
-from envs.flat_base import FlatBase
-from envs.rotations import mat2quat, mat2embedding
+import dextgen.envs
+from dextgen.envs.flat_base import FlatBase
+from dextgen.envs.rotations import mat2quat, mat2embedding
 
-import envs.init_qpos
+import dextgen.envs.init_qpos
 
 # The eigengrasps are exctracted from joint configurations obtained by fitting the ShadowHand to
 # hand poses from the ContactPose dataset. For more information, see
@@ -36,7 +36,7 @@ class FlatSHBase(FlatBase):
                  n_eigengrasps: Optional[int] = None,
                  object_size_multiplier: float = 1.,
                  object_size_range: float = 0.,
-                 initial_qpos = envs.init_qpos.DEFAULT_INITIAL_QPOS_Barrett):
+                 initial_qpos = dextgen.envs.init_qpos.DEFAULT_INITIAL_QPOS_Barrett):
         """Initialize a flat ShadowHand environment.
 
         Args:
@@ -77,7 +77,7 @@ class FlatSHBase(FlatBase):
         pose_ctrl = np.concatenate([pos_ctrl, rot_ctrl])
 
         # Apply action to simulation.
-        envs.utils.mocap_set_action(self.sim, pose_ctrl)
+        dextgen.envs.utils.mocap_set_action(self.sim, pose_ctrl)
         self.sim.data.ctrl[:] = self._act_center + hand_ctrl * self._act_range
         self.sim.data.ctrl[:] = np.clip(self.sim.data.ctrl, self._ctrl_range[:, 0],
                                         self._ctrl_range[:, 1])
@@ -85,14 +85,14 @@ class FlatSHBase(FlatBase):
     def _map_eigengrasps(self, action: np.ndarray) -> np.ndarray:
         pos_ctrl, hand_ctrl = action[:-self.n_eigengrasps], action[-self.n_eigengrasps:]
         # Transform hand controls to eigengrasps
-        hand_ctrl = envs.utils.map_sh2mujoco(hand_ctrl @ self.EIGENGRASPS[:self.n_eigengrasps])
+        hand_ctrl = dextgen.envs.utils.map_sh2mujoco(hand_ctrl @ self.EIGENGRASPS[:self.n_eigengrasps])
         np.clip(hand_ctrl, -1, 1, out=hand_ctrl)
         return np.concatenate((pos_ctrl, hand_ctrl))
 
     def _get_obs(self) -> Dict[str, np.ndarray]:
         # positions
         grip_pos = self.sim.data.get_site_xpos("robot0:grip")
-        robot_qpos, _ = envs.utils.robot_get_obs(self.sim)
+        robot_qpos, _ = dextgen.envs.utils.robot_get_obs(self.sim)
         object_pos = self.sim.data.get_site_xpos(self.object_name)
         object_rel_pos = object_pos - grip_pos
         # rotations

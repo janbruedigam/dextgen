@@ -6,11 +6,11 @@ from pathlib import Path
 import numpy as np
 import json
 
-import envs
-from envs.flat_base import FlatBase
-from envs.rotations import mat2quat, mat2embedding
+import dextgen.envs
+from dextgen.envs.flat_base import FlatBase
+from dextgen.envs.rotations import mat2quat, mat2embedding
 
-import envs.init_qpos
+import dextgen.envs.init_qpos
 
 # Eigengrasps for barrett are designed by hand
 with open(Path(__file__).parent / "eigengrasps.json", "r") as f:
@@ -34,7 +34,7 @@ class FlatBarrettBase(FlatBase):
                  n_eigengrasps: Optional[int] = None,
                  object_size_multiplier: float = 1.,
                  object_size_range: float = 0.,
-                 initial_qpos = envs.init_qpos.DEFAULT_INITIAL_QPOS_Barrett):
+                 initial_qpos = dextgen.envs.init_qpos.DEFAULT_INITIAL_QPOS_Barrett):
         """Initialize a flat BarrettHand environment.
 
         Args:
@@ -74,7 +74,7 @@ class FlatBarrettBase(FlatBase):
         action = np.concatenate([pos_ctrl, rot_ctrl])
 
         # Apply action to simulation.
-        envs.utils.mocap_set_action(self.sim, action)
+        dextgen.envs.utils.mocap_set_action(self.sim, action)
         self.sim.data.ctrl[:] = self._act_center + hand_ctrl * self._act_range
         self.sim.data.ctrl[:] = np.clip(self.sim.data.ctrl, self._ctrl_range[:, 0],
                                         self._ctrl_range[:, 1])
@@ -89,7 +89,7 @@ class FlatBarrettBase(FlatBase):
     def _get_obs(self) -> Dict[str, np.ndarray]:
         # positions
         grip_pos = self.sim.data.get_site_xpos("robot0:grip")
-        robot_qpos, robot_qvel = envs.utils.robot_get_obs(self.sim)
+        robot_qpos, robot_qvel = dextgen.envs.utils.robot_get_obs(self.sim)
         object_pos = self.sim.data.get_site_xpos(self.object_name)
         object_rel_pos = object_pos - grip_pos
         # rotations

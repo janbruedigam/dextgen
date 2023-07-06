@@ -4,14 +4,14 @@ from typing import Dict
 
 import numpy as np
 
-from optim.grippers.kinematics.parallel_jaw import kin_pj_full
-from optim.constraints import create_plane_constraints
-from optim.utils.utils import import_guard
-from optim.geometry.base_geometry import Geometry
+from dextgen.optim.grippers.kinematics.parallel_jaw import kin_pj_full
+from dextgen.optim.constraints import create_plane_constraints
+from dextgen.optim.utils.utils import import_guard
+from dextgen.optim.geometry.base_geometry import Geometry
 
 if import_guard():
-    from optim.grippers.base_gripper import Gripper  # noqa: TC001, is guarded
-    from optim.core.optimizer import Optimizer  # noqa: TC001, is guarded
+    from dextgen.optim.grippers.base_gripper import Gripper  # noqa: TC001, is guarded
+    from dextgen.optim.core.optimizer import Optimizer  # noqa: TC001, is guarded
 
 
 class Cube(Geometry):

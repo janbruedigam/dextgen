@@ -5,12 +5,12 @@ from typing import Dict, Callable
 import numpy as np
 import jax.numpy as jnp
 
-from optim.grippers.base_gripper import Gripper
-from optim.grippers.kinematics.parallel_jaw import PJ_JOINT_LIMITS, kin_pj_right, kin_pj_left
-from optim.utils.utils import import_guard
+from dextgen.optim.grippers.base_gripper import Gripper
+from dextgen.optim.grippers.kinematics.parallel_jaw import PJ_JOINT_LIMITS, kin_pj_right, kin_pj_left
+from dextgen.optim.utils.utils import import_guard
 
 if import_guard():
-    from optim.core.optimizer import Optimizer  # noqa: TC001, is guarded
+    from dextgen.optim.core.optimizer import Optimizer  # noqa: TC001, is guarded
 
 
 class ParallelJaw(Gripper):

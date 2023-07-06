@@ -5,8 +5,8 @@ from typing import Optional
 from gym import utils
 import numpy as np
 
-from envs.parallel_jaw.uneven_base import UnevenPJBase
-import envs.utils
+from dextgen.envs.parallel_jaw.uneven_base import UnevenPJBase
+import dextgen.envs.utils
 
 MODEL_XML_PATH = str(Path("PJ", "uneven_cube.xml"))
 
@@ -41,4 +41,4 @@ class UnevenPJFixedCube(UnevenPJBase, utils.EzPickle):
 
         # Apply action to simulation.
         self.sim.data.ctrl[:] = self._act_center + gripper_ctrl * self._act_range
-        envs.utils.mocap_set_action(self.sim, pose_ctrl)
+        dextgen.envs.utils.mocap_set_action(self.sim, pose_ctrl)

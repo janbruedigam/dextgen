@@ -4,11 +4,11 @@ from typing import Dict
 
 import numpy as np
 
-import envs
-from envs.flat_base import FlatBase
-from envs.rotations import mat2quat, mat2embedding
+import dextgen.envs
+from dextgen.envs.flat_base import FlatBase
+from dextgen.envs.rotations import mat2quat, mat2embedding
 
-import envs.init_qpos
+import dextgen.envs.init_qpos
 
 logger = logging.getLogger(__name__)
 
@@ -25,7 +25,7 @@ class FlatPJBase(FlatBase):
                  object_size_multiplier: float = 1.,
                  object_size_range: float = 0.,
                  n_actions: int = 13,
-                 initial_qpos = envs.init_qpos.DEFAULT_INITIAL_QPOS_PJ):
+                 initial_qpos = dextgen.envs.init_qpos.DEFAULT_INITIAL_QPOS_PJ):
         """Initialize a flat parallel jaw environment.
 
         Args:
@@ -64,8 +64,8 @@ class FlatPJBase(FlatBase):
 
         # Apply action to simulation.
         self.sim.data.ctrl[:] = self._act_center + gripper_ctrl * self._act_range
-        # envs.utils.ctrl_set_action(self.sim, action)
-        envs.utils.mocap_set_action(self.sim, pose_ctrl)
+        # dextgen.envs.utils.ctrl_set_action(self.sim, action)
+        dextgen.envs.utils.mocap_set_action(self.sim, pose_ctrl)
 
     def enable_full_orient_ctrl(self, val: bool = True):
         """Enable full control over the gripper rotation for optimal control experiments.
@@ -77,7 +77,7 @@ class FlatPJBase(FlatBase):
     def _get_obs(self) -> Dict[str, np.ndarray]:
         # positions
         grip_pos = self.sim.data.get_site_xpos("robot0:grip")
-        robot_qpos, robot_qvel = envs.utils.robot_get_obs(self.sim)
+        robot_qpos, robot_qvel = dextgen.envs.utils.robot_get_obs(self.sim)
         object_pos = self.sim.data.get_site_xpos(self.object_name)
         object_rel_pos = object_pos - grip_pos
         # rotations

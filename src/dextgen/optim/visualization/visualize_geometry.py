@@ -5,11 +5,11 @@ from functools import singledispatch
 import numpy as np
 import matplotlib.pyplot as plt
 
-from optim.utils.utils import import_guard
+from dextgen.optim.utils.utils import import_guard
 
 if import_guard():
     from matplotlib.figure import Figure  # noqa: TC002, is guarded
-    from optim.geometry import Cube, Geometry  # noqa: TC001, is guarded
+    from dextgen.optim.geometry import Cube, Geometry  # noqa: TC001, is guarded
 
 
 @singledispatch

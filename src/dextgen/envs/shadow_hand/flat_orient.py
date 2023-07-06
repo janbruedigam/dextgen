@@ -5,12 +5,12 @@ from typing import Any, Dict, Optional
 from gym import utils
 import numpy as np
 
-import envs
-from envs.shadow_hand.flat_base import FlatSHBase
-from envs.rotations import embedding2mat, embedding2quat, fastembedding2quat, quat2embedding
-from envs.rotations import axisangle2quat, mat2quat, quat_mul, mat2embedding
+import dextgen.envs
+from dextgen.envs.shadow_hand.flat_base import FlatSHBase
+from dextgen.envs.rotations import embedding2mat, embedding2quat, fastembedding2quat, quat2embedding
+from dextgen.envs.rotations import axisangle2quat, mat2quat, quat_mul, mat2embedding
 
-import envs.init_qpos
+import dextgen.envs.init_qpos
 
 MODEL_XML_PATH = str(Path("ShadowHand", "flat_orient.xml"))
 
@@ -25,7 +25,7 @@ class FlatSHOrient(FlatSHBase, utils.EzPickle):
                  angle_reduce_factor: float = 1.25,
                  angle_min_tolerance: float = 0.2,
                  angle_reduce_performance: float = 0.75, 
-                 initial_qpos = envs.init_qpos.DEFAULT_INITIAL_QPOS_Barrett):
+                 initial_qpos = dextgen.envs.init_qpos.DEFAULT_INITIAL_QPOS_Barrett):
         """Initialize a shadow hand mesh environment with additional orientation goals.
 
         Args:
@@ -75,7 +75,7 @@ class FlatSHOrient(FlatSHBase, utils.EzPickle):
         pose_ctrl = np.concatenate([pos_ctrl, rot_ctrl])
 
         # Apply action to simulation.
-        envs.utils.mocap_set_action(self.sim, pose_ctrl)
+        dextgen.envs.utils.mocap_set_action(self.sim, pose_ctrl)
         self.sim.data.ctrl[:] = self._act_center + hand_ctrl * self._act_range
         self.sim.data.ctrl[:] = np.clip(self.sim.data.ctrl, self._ctrl_range[:, 0],
                                         self._ctrl_range[:, 1])
@@ -98,7 +98,7 @@ class FlatSHOrient(FlatSHBase, utils.EzPickle):
     def _get_obs(self) -> Dict[str, np.ndarray]:
         # positions
         grip_pos = self.sim.data.get_site_xpos("robot0:grip")
-        robot_qpos, robot_qvel = envs.utils.robot_get_obs(self.sim)
+        robot_qpos, robot_qvel = dextgen.envs.utils.robot_get_obs(self.sim)
         object_pos = self.sim.data.get_site_xpos(self.object_name)
         object_rel_pos = object_pos - grip_pos
         # rotations
@@ -165,7 +165,7 @@ class FlatSHOrient(FlatSHBase, utils.EzPickle):
             goal: Desired goal.
         """
         # Compute distance between goal and the achieved goal.
-        d = envs.utils.goal_distance(achieved_goal[..., :3], goal[..., :3])
+        d = dextgen.envs.utils.goal_distance(achieved_goal[..., :3], goal[..., :3])
         if self.angle_threshold == np.pi:  # Speed up reward calculation for initial training
             return -(d > self.target_threshold).astype(np.float32)
         em2quat = embedding2quat if goal.ndim == 1 else fastembedding2quat
@@ -178,7 +178,7 @@ class FlatSHOrient(FlatSHBase, utils.EzPickle):
         return -(np.logical_or(pos_error, rot_error)).astype(np.float32)
 
     def _is_success(self, achieved_goal: np.ndarray, desired_goal: np.ndarray) -> bool:
-        d = envs.utils.goal_distance(achieved_goal[..., :3], desired_goal[..., :3])
+        d = dextgen.envs.utils.goal_distance(achieved_goal[..., :3], desired_goal[..., :3])
         em2quat = embedding2quat if desired_goal.ndim == 1 else fastembedding2quat
         qgoal = em2quat(desired_goal[..., 3:9])
         qachieved_goal = em2quat(achieved_goal[..., 3:9])

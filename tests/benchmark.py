@@ -1,6 +1,6 @@
 import time
 
-from envs.rotations import euler2quat, mat2quat, fastmat2quat, quat2mat
+from dextgen.envs.rotations import euler2quat, mat2quat, fastmat2quat, quat2mat
 import numpy as np
 
 N = 1000

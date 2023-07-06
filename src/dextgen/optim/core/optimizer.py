@@ -7,7 +7,7 @@ import jax.numpy as jnp
 from jax.config import config
 import numpy as np
 
-from optim.core.interior_point import solve
+from dextgen.optim.core.interior_point import solve
 
 logger = logging.getLogger(__name__)
 

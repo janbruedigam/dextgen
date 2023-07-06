@@ -13,11 +13,11 @@ import torch
 import gym
 from gym.wrappers.monitoring.video_recorder import VideoRecorder
 import mujoco_py
-import envs  # Import registers environments with gym  # noqa: F401
+import dextgen.envs # Import registers environments with gym  # noqa: F401
 
-from mp_rl.core.utils import unwrap_obs
-from mp_rl.core.actor import PosePolicyNet, DDP
-from parse_args import parse_args
+from dextgen.mp_rl.core.utils import unwrap_obs
+from dextgen.mp_rl.core.actor import PosePolicyNet, DDP
+from dextgen.parse_args import parse_args
 
 
 class MujocoVideoRecorder(VideoRecorder):
@@ -65,10 +65,10 @@ if __name__ == "__main__":
         "mesh:joint": init_object
     }
     
-    if init_random:
-        env = gym.make(args.env, **args.kwargs) if hasattr(args, "kwargs") else gym.make(args.env, init_random=init_random, initial_qpos=ros_initial_qpos)
-    else:
-        env = gym.make(args.env, **args.kwargs) if hasattr(args, "kwargs") else gym.make(args.env)
+    # if init_random:
+    #     env = gym.make(args.env, **args.kwargs) if hasattr(args, "kwargs") else gym.make(args.env, init_random=init_random, initial_qpos=ros_initial_qpos)
+    # else:
+    env = gym.make(args.env, **args.kwargs) if hasattr(args, "kwargs") else gym.make(args.env)
     size_g = len(env.observation_space["desired_goal"].low)
     size_s = len(env.observation_space["observation"].low) + size_g
     size_a = len(env.action_space.low)

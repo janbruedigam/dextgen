@@ -5,8 +5,8 @@ from pathlib import Path
 from gym import utils
 import numpy as np
 
-from envs.parallel_jaw.flat_base import FlatPJBase
-from envs.rotations import axisangle2quat, quat_mul
+from dextgen.envs.parallel_jaw.flat_base import FlatPJBase
+from dextgen.envs.rotations import axisangle2quat, quat_mul
 
 MODEL_XML_PATH = str(Path("PJ", "flat_all.xml"))
 

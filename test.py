@@ -13,11 +13,11 @@ import torch
 import gym
 from gym.wrappers.monitoring.video_recorder import VideoRecorder
 import mujoco_py
-import envs  # Import registers environments with gym  # noqa: F401
+import dextgen_package_collection.envs  # Import registers environments with gym  # noqa: F401
 
-from mp_rl.core.utils import unwrap_obs
-from mp_rl.core.actor import PosePolicyNet, DDP
-from parse_args import parse_args
+from dextgen.mp_rl.core.utils import unwrap_obs
+from dextgen.mp_rl.core.actor import PosePolicyNet, DDP
+from dextgen import parse_args
 
 
 class MujocoVideoRecorder(VideoRecorder):

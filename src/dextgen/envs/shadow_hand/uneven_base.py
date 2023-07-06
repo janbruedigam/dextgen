@@ -4,8 +4,8 @@ import logging
 
 import numpy as np
 
-import envs
-from envs.shadow_hand.flat_base import FlatSHBase
+import dextgen.envs
+from dextgen.envs.shadow_hand.flat_base import FlatSHBase
 
 logger = logging.getLogger(__name__)
 
@@ -30,7 +30,7 @@ class UnevenSHBase(FlatSHBase):
             if name not in self.sim.model.joint_names:
                 continue
             self.sim.data.set_joint_qpos(name, value)
-        envs.utils.reset_mocap_welds(self.sim)
+        dextgen.envs.utils.reset_mocap_welds(self.sim)
         self.sim.forward()
         # Save start positions on first run
         if self.gripper_init_pos is None:

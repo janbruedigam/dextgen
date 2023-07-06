@@ -2,9 +2,9 @@
 from __future__ import annotations
 from typing import Dict, Callable
 
-from optim.grippers.base_gripper import Gripper
-from optim.grippers.kinematics.barrett_hand import BH_JOINT_LIMITS
-from optim.utils.utils import import_guard
+from dextgen.optim.grippers.base_gripper import Gripper
+from dextgen.optim.grippers.kinematics.barrett_hand import BH_JOINT_LIMITS
+from dextgen.optim.utils.utils import import_guard
 
 if import_guard():
     import numpy as np  # noqa: TC002, is guarded

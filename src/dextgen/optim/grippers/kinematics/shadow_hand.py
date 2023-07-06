@@ -5,7 +5,7 @@ import numpy as np
 from jax import jit
 import jax.numpy as jnp
 
-from optim.grippers.kinematics.tf import tf_matrix, tf_matrix_q, zrot_matrix
+from dextgen.optim.grippers.kinematics.tf import tf_matrix, tf_matrix_q, zrot_matrix
 
 JOINT_LIMITS = {
     "lower":

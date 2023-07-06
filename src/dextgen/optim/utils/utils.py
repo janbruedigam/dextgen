@@ -3,7 +3,7 @@ from typing import Dict, Tuple, TYPE_CHECKING
 
 import numpy as np
 
-from envs.rotations import mat2quat
+from dextgen.envs.rotations import mat2quat
 
 
 def filter_info(info: Dict) -> Tuple[np.ndarray, Dict]:

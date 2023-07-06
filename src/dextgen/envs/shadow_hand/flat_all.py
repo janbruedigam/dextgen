@@ -6,8 +6,8 @@ from pathlib import Path
 from gym import utils
 import numpy as np
 
-from envs.shadow_hand.flat_base import FlatSHBase
-from envs.rotations import quat_mul, axisangle2quat
+from dextgen.envs.shadow_hand.flat_base import FlatSHBase
+from dextgen.envs.rotations import quat_mul, axisangle2quat
 
 MODEL_XML_PATH = str(Path("ShadowHand", "flat_all.xml"))
 

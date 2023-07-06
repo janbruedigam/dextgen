@@ -1,7 +1,7 @@
 """ShadowHand module."""
 from typing import Dict, Callable
 
-from optim.grippers.base_gripper import Gripper
+from dextgen.optim.grippers.base_gripper import Gripper
 
 
 class ShadowHand(Gripper):

@@ -5,9 +5,9 @@ from typing import Optional
 from gym import utils
 import numpy as np
 
-from envs.shadow_hand.flat_base import FlatSHBase
+from dextgen.envs.shadow_hand.flat_base import FlatSHBase
 
-import envs.init_qpos
+import dextgen.envs.init_qpos
 
 MODEL_XML_PATH = str(Path("ShadowHand", "flat_cube.xml"))
 
@@ -19,7 +19,7 @@ class FlatSHCube(FlatSHBase, utils.EzPickle):
                  n_eigengrasps: Optional[int] = None,
                  object_size_multiplier: float = 1.,
                  object_size_range: float = 0., 
-                 initial_qpos = envs.init_qpos.DEFAULT_INITIAL_QPOS_Barrett):
+                 initial_qpos = dextgen.envs.init_qpos.DEFAULT_INITIAL_QPOS_Barrett):
         """Initialize a ShadowHand cube environment.
 
         Args:

@@ -4,12 +4,12 @@ from typing import Dict, Tuple
 
 import numpy as np
 
-from envs.rotations import embedding2mat, mat2quat, quat2mat
-from optim.utils.utils import filter_info
-from optim.core.optimizer import Optimizer
-from optim.objective import create_cube_objective
-from optim.geometry import get_geometry, Cube
-from optim.grippers import get_gripper
+from dextgen.envs.rotations import embedding2mat, mat2quat, quat2mat
+from dextgen.optim.utils.utils import filter_info
+from dextgen.optim.core.optimizer import Optimizer
+from dextgen.optim.objective import create_cube_objective
+from dextgen.optim.geometry import get_geometry, Cube
+from dextgen.optim.grippers import get_gripper
 
 logger = logging.getLogger(__name__)
 

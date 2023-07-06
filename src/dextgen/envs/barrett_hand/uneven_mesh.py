@@ -4,7 +4,7 @@ from pathlib import Path
 
 from gym import utils
 
-from envs.barrett_hand.uneven_base import UnevenBarrettBase
+from dextgen.envs.barrett_hand.uneven_base import UnevenBarrettBase
 
 MODEL_XML_PATH = str(Path("BarrettHand", "uneven_mesh.xml"))
 

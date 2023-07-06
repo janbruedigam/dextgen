@@ -4,7 +4,7 @@ from typing import Tuple, Union
 import numpy as np
 import jax.numpy as jnp
 
-from optim.grippers.kinematics.tf import tf_matrix, tf_matrix_q, zrot_matrix
+from dextgen.optim.grippers.kinematics.tf import tf_matrix, tf_matrix_q, zrot_matrix
 
 BH_JOINT_LIMITS = {
     "lower": np.array([0., 0., 0., 0.]),

@@ -8,6 +8,7 @@ loading if starting from pre-trained networks. It assumes dictionary gym environ
 import argparse
 import logging
 from typing import List, Optional
+import os
 from pathlib import Path
 import time
 from datetime import datetime
@@ -21,12 +22,12 @@ from matplotlib.ticker import MaxNLocator
 from mpi4py import MPI
 import json
 
-from mp_rl.core.utils import unwrap_obs
-from mp_rl.core.noise import UniformNoise, GaussianNoise, OrnsteinUhlenbeckNoise
-from mp_rl.core.actor import Actor, PosePolicyNet
-from mp_rl.core.critic import Critic
-from mp_rl.core.normalizer import Normalizer
-from mp_rl.core.replay_buffer import HERBuffer, TrajectoryBuffer
+from dextgen.mp_rl.core.utils import unwrap_obs
+from dextgen.mp_rl.core.noise import UniformNoise, GaussianNoise, OrnsteinUhlenbeckNoise
+from dextgen.mp_rl.core.actor import Actor, PosePolicyNet
+from dextgen.mp_rl.core.critic import Critic
+from dextgen.mp_rl.core.normalizer import Normalizer
+from dextgen.mp_rl.core.replay_buffer import HERBuffer, TrajectoryBuffer
 
 logger = logging.getLogger(__name__)
 
@@ -91,7 +92,7 @@ class DDPG:
         if dist and world_size > 1:
             self.init_dist()
         if self.args.save:
-            self.PATH = Path(__file__).parents[2] / "saves" / self.args.env
+            self.PATH = Path(os.getcwd()+"/saves/"+self.args.env)
             if not self.PATH.is_dir():
                 self.PATH.mkdir(parents=True, exist_ok=True)
             # Create a unique backup path with the current time and resolve name collisions

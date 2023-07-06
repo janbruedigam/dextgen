@@ -2,12 +2,12 @@
 from __future__ import annotations
 from typing import Dict
 
-from optim.geometry.cube import Cube
-from optim.utils.utils import import_guard
+from dextgen.optim.geometry.cube import Cube
+from dextgen.optim.utils.utils import import_guard
 
 if import_guard():
-    from optim.grippers.base_gripper import Gripper  # noqa: TC001, is guarded
-    from optim.geometry.base_geometry import Geometry  # noqa: TC001, is guarded
+    from dextgen.optim.grippers.base_gripper import Gripper  # noqa: TC001, is guarded
+    from dextgen.optim.geometry.base_geometry import Geometry  # noqa: TC001, is guarded
 
 
 def get_geometry(info: Dict, gripper: Gripper = None) -> Geometry:

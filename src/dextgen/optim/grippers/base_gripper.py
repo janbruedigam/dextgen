@@ -5,13 +5,13 @@ from typing import Dict, Callable
 
 import numpy as np
 
-from envs.rotations import mat2quat
+from dextgen.envs.rotations import mat2quat
 
-from optim.constraints import quaternion_cnst
-from optim.utils.utils import import_guard
+from dextgen.optim.constraints import quaternion_cnst
+from dextgen.optim.utils.utils import import_guard
 
 if import_guard():
-    from optim.core.optimizer import Optimizer  # noqa: TC001, is guarded
+    from dextgen.optim.core.optimizer import Optimizer  # noqa: TC001, is guarded
 
 
 class Gripper(ABC):

@@ -13,7 +13,7 @@ from collections import deque
 
 import numpy as np
 
-from mp_rl.utils import import_guard
+from dextgen.mp_rl.utils import import_guard
 
 if import_guard():
     from collections.abc import Iterator, KeysView, ValuesView, ItemsView  # noqa: TC003, is guarded

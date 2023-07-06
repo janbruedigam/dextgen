@@ -3,12 +3,12 @@ import logging
 
 import numpy as np
 import gym
-import envs  # noqa: F401  environments need to be registered with the gym module
-from envs.rotations import embedding2mat  # Import registers environments with gym  # noqa: F401
+import dextgen.envs # noqa: F401  environments need to be registered with the gym module
+from dextgen.envs.rotations import embedding2mat  # Import registers environments with gym  # noqa: F401
 
-from mp_rl.core.utils import unwrap_obs
-from optim.control import Controller
-from optim.utils.rotations import quat2mat
+from dextgen.mp_rl.core.utils import unwrap_obs
+from dextgen.optim.control import Controller
+from dextgen.optim.utils.rotations import quat2mat
 from parse_args import parse_args
 
 logger = logging.getLogger(__name__)

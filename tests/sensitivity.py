@@ -1,14 +1,14 @@
-from pathlib import Path
+import os
 
 import gym
 import torch
 
-import envs
-from mp_rl.core.utils import unwrap_obs
-from mp_rl.core.actor import DDP
+import dextgen.envs
+from dextgen.mp_rl.core.utils import unwrap_obs
+from dextgen.mp_rl.core.actor import DDP
 
 if __name__ == "__main__":
-    root = Path(__file__).parents[1] / "saves" / "FlatPJCube-v0"
+    root = os.getcwd()+"/saves/"+"FlatPJCube-v0"
     env = gym.make("FlatPJCube-v0")
 
     obs = env.reset()

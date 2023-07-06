@@ -1,11 +1,11 @@
 """Argument parser helper functions."""
 import argparse
-from pathlib import Path
+import os
 import logging
 
 import yaml
 
-import envs
+import dextgen.envs
 
 logger = logging.getLogger(__name__)
 
@@ -19,7 +19,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument("--env",
                         help="Selects the gym environment",
-                        choices=envs.available_envs,
+                        choices=dextgen.envs.available_envs,
                         required=True)
     parser.add_argument('--loglvl',
                         help="Logger levels",
@@ -68,7 +68,7 @@ def expand_args(args: argparse.Namespace):
         args: User provided arguments namespace.
     """
     logging.basicConfig(level=logging.INFO)
-    path = Path(__file__).parent / "config" / "experiment_config.yaml"
+    path = os.getcwd()+"/config/experiment_config.yaml"
     with open(path, "r") as f:
         config = yaml.load(f, yaml.SafeLoader)
 

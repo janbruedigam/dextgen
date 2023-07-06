@@ -1,7 +1,7 @@
 """Transformations module for creating homogeneous transformation matrices compatible with JAX."""
 import jax.numpy as jnp
 
-from optim.utils.rotations import quat2mat
+from dextgen.optim.utils.rotations import quat2mat
 
 
 def tf_matrix(v: jnp.ndarray) -> jnp.ndarray:

@@ -3,9 +3,9 @@ from pathlib import Path
 
 from gym import utils
 
-from envs.parallel_jaw.flat_base import FlatPJBase
+from dextgen.envs.parallel_jaw.flat_base import FlatPJBase
 
-import envs.init_qpos
+import dextgen.envs.init_qpos
 
 MODEL_XML_PATH = str(Path("PJ", "flat_sphere.xml"))
 
@@ -16,7 +16,7 @@ class FlatPJSphere(FlatPJBase, utils.EzPickle):
     def __init__(self, init_random: bool = True,  
                  object_size_multiplier: float = 1., 
                  object_size_range: float = 0., 
-                 initial_qpos = envs.init_qpos.DEFAULT_INITIAL_QPOS_PJ):
+                 initial_qpos = dextgen.envs.init_qpos.DEFAULT_INITIAL_QPOS_PJ):
         """Initialize a parallel jaw sphere environment.
 
         Args:

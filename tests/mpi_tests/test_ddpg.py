@@ -6,14 +6,14 @@ import gym
 import yaml
 from mpi4py import MPI
 
-import envs
-from mp_rl.core.ddpg import DDPG
+import dextgen.envs
+from dextgen.mp_rl.core.ddpg import DDPG
 
 
 @pytest.mark.mpi
 def test_ddpg_mpi():
     comm = MPI.COMM_WORLD
-    args = load_args(envs.available_envs[0])
+    args = load_args(dextgen.envs.available_envs[0])
     args.save = False  # Avoid creating folders for tests
     gym.make(args.env)
     env = gym.make(args.env)

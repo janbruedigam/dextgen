@@ -4,7 +4,7 @@ from typing import Optional
 
 from gym import utils
 
-from envs.parallel_jaw.uneven_base import UnevenPJBase
+from dextgen.envs.parallel_jaw.uneven_base import UnevenPJBase
 
 MODEL_XML_PATH = str(Path("PJ", "uneven_cube.xml"))
 

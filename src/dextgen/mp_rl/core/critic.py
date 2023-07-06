@@ -11,8 +11,8 @@ import numpy as np
 import torch
 import torch.nn as nn
 
-from mp_rl.core.utils import soft_update, sync_networks, sync_grads
-from mp_rl.utils import import_guard
+from dextgen.mp_rl.core.utils import soft_update, sync_networks, sync_grads
+from dextgen.mp_rl.utils import import_guard
 
 if import_guard():
     from pathlib import Path  # noqa: TC003, is guarded

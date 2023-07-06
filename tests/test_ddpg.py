@@ -5,11 +5,11 @@ import pytest
 import gym
 import yaml
 
-import envs
-from mp_rl.core.ddpg import DDPG
+import dextgen.envs
+from dextgen.mp_rl.core.ddpg import DDPG
 
 
-@pytest.mark.parametrize("env", envs.available_envs)
+@pytest.mark.parametrize("env", dextgen.envs.available_envs)
 def test_ddpg(env):
     args = load_args(env)
     args.save = False  # Avoid creating folders for tests
