@@ -25,7 +25,7 @@ class FlatSHOrient(FlatSHBase, utils.EzPickle):
                  angle_reduce_factor: float = 1.25,
                  angle_min_tolerance: float = 0.2,
                  angle_reduce_performance: float = 0.75, 
-                 initial_qpos = dextgen.envs.init_qpos.DEFAULT_INITIAL_QPOS_Barrett):
+                 initial_qpos = dextgen.envs.init_qpos.DEFAULT_INITIAL_QPOS_SH):
         """Initialize a shadow hand mesh environment with additional orientation goals.
 
         Args:

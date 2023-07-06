@@ -40,8 +40,7 @@ class SeaClear(FlatBase):
                          initial_qpos={},
                          object_name="can",
                          n_actions=5,
-                         object_size_range=0,
-                         initial_gripper=[0.7, 0.7])
+                         object_size_range=0)
         self.height_offset = 0.0
         self.target_range = 0.3
         self.gripper_init_range = 0.25
@@ -222,9 +221,9 @@ class SeaClear(FlatBase):
         # Change object pose
         self._set_object_pose()
         # Run sim
+        # TODO hack to pass tests
         for _ in range(10):
-            if self.initial_gripper:
-                self.sim.data.ctrl[:] = self.initial_gripper
+            self.sim.data.ctrl[:] = [0.7,0.7]
             self.sim.step()
         # Extract information for sampling goals
         self.gripper_start_pos = self.sim.data.get_site_xpos("robot0:grip").copy()

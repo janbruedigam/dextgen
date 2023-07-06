@@ -36,7 +36,7 @@ class FlatSHBase(FlatBase):
                  n_eigengrasps: Optional[int] = None,
                  object_size_multiplier: float = 1.,
                  object_size_range: float = 0.,
-                 initial_qpos = dextgen.envs.init_qpos.DEFAULT_INITIAL_QPOS_Barrett):
+                 initial_qpos = dextgen.envs.init_qpos.DEFAULT_INITIAL_QPOS_SH):
         """Initialize a flat ShadowHand environment.
 
         Args:
@@ -52,8 +52,6 @@ class FlatSHBase(FlatBase):
         super().__init__(model_xml_path=model_xml_path,
                          gripper_extra_height=0.3,
                          initial_qpos=initial_qpos,
-                         initial_qpos=DEFAULT_INITIAL_QPOS,
-                         initial_gripper=DEFAULT_INITIAL_GRIPPER,
                          n_actions=n_actions,
                          object_name=object_name,
                          init_random=init_random,

@@ -21,7 +21,7 @@ class FlatSHCylinder(FlatSHBase, utils.EzPickle):
                  p_rot: float = 0.5,
                  object_size_multiplier: float = 1.,
                  object_size_range: float = 0., 
-                 initial_qpos = dextgen.envs.init_qpos.DEFAULT_INITIAL_QPOS_Barrett):
+                 initial_qpos = dextgen.envs.init_qpos.DEFAULT_INITIAL_QPOS_SH):
         """Initialize a ShadowHand cylinder environment.
 
         Args:
