@@ -8,8 +8,8 @@ DEFAULT_INITIAL_QPOS_PJ = {
     "panda_joint6": 2.8,
     "panda_joint7": 0,
     # Hand
-    "robot0:r_gripper_finger_joint": 0.2,
-    "robot0:l_gripper_finger_joint": 0.2,
+    "robot0:r_gripper_finger_joint": 0.02,
+    "robot0:l_gripper_finger_joint": 0.02,
     # Objects
     "cube:joint": [.1, -.1, .025, 1., 0, 0, 0],
     "cylinder:joint": [-.1, .1, .025, 1., 0, 0, 0],

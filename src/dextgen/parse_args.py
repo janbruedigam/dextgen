@@ -10,7 +10,7 @@ import dextgen.envs
 logger = logging.getLogger(__name__)
 
 
-def parse_args() -> argparse.Namespace:
+def parse_args(args=None, config_path=os.getcwd()+"/config/experiment_config.yaml") -> argparse.Namespace:
     """Parse arguments for the gym environment and logging levels.
 
     Returns:
@@ -53,12 +53,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--init_gripper",
                         help="Finger position for ROS",
                         default="0")
-    args = parser.parse_args()
-    expand_args(args)
+    args = parser.parse_args(args=args)
+    expand_args(args, config_path=config_path)
     return args
 
 
-def expand_args(args: argparse.Namespace):
+def expand_args(args: argparse.Namespace, config_path=os.getcwd()+"/config/experiment_config.yaml"):
     """Expand the arguments namespace with settings from the main config file.
 
     Config can be found at './config/experiment_config.yaml'. Each config must be named after their
@@ -68,8 +68,7 @@ def expand_args(args: argparse.Namespace):
         args: User provided arguments namespace.
     """
     logging.basicConfig(level=logging.INFO)
-    path = os.getcwd()+"/config/experiment_config.yaml"
-    with open(path, "r") as f:
+    with open(config_path, "r") as f:
         config = yaml.load(f, yaml.SafeLoader)
 
     if "Default" not in config.keys():
