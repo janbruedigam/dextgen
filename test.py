@@ -125,3 +125,4 @@ if __name__ == "__main__":
         recorder.close()
         (Path(__file__).parent / "video" / (args.env + ".meta.json")).unlink()  # Delete metafile
     logger.info(f"Agent success rate: {success/args.ntests:.2f}")
+    env.destroy_window()

@@ -10,6 +10,7 @@ import copy
 import numpy as np
 from typing import Optional, Union, Dict, Tuple, Any, List
 
+import glfw
 import gym
 from gym import error, spaces
 from gym.utils import seeding
@@ -154,25 +155,19 @@ class RobotEnv(gym.GoalEnv):
             self._viewers = {}
 
     def render(self,
-               mode: str = "human",
                width: int = DEFAULT_SIZE,
                height: int = DEFAULT_SIZE) -> Optional[np.ndarray]:
         """Render the current sim state.
 
         Args:
-            mode: Render mode.
             width: Render window width.
             heights: Render window height.
         """
         self._render_callback()
-        if mode == "rgb_array":
-            self._get_viewer(mode).render(width, height)
-            # window size used for old mujoco-py:
-            data = self._get_viewer(mode).read_pixels(width, height, depth=False)
-            # original image is upside-down, so flip it
-            return data[::-1, :, :]
-        elif mode == "human":
-            self._get_viewer(mode).render()
+        self._get_viewer("human").render()
+
+    def destroy_window(self):
+        glfw.destroy_window(self._get_viewer("human").window)
 
     def use_info(self, val: bool = True):
         """Enable info calculation.
