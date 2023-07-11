@@ -85,20 +85,20 @@ def create_actor(env, args, saves_path=os.getcwd()+"/saves"):
     
     return actor, state_norm, goal_norm
 
-def record_and_render(env, logger, recorder, render):
+def record_and_render(env, logger, recorder, render, frame_period=0.04):
     if recorder is not None:
         recorder.capture_frame()
     elif render:
         try:
             env.render()
-            time.sleep(0.04)  # Gym operates on 25 Hz
+            time.sleep(frame_period)  # Gym operates on 25 Hz
         except mujoco_py.cymj.GlfwError:
             logger.warning("No display available, rendering disabled")
             render = False
 
     return render
 
-def repeated_rollout(args, saves_path=os.getcwd()+"/saves", video_path=os.getcwd()+"/video"):
+def repeated_rollout(args, saves_path=os.getcwd()+"/saves", video_path=os.getcwd()+"/video", frame_period=0.04):
     logger = create_logger(args)
     env = gym.make(args.env, **args.kwargs) if hasattr(args, "kwargs") else gym.make(args.env)
     actor, state_norm, goal_norm = create_actor(env, args, saves_path)
@@ -115,7 +115,7 @@ def repeated_rollout(args, saves_path=os.getcwd()+"/saves", video_path=os.getcwd
         recorder = None
 
     for i in range(args.ntests):
-        success += rollout(env, state_norm, goal_norm, recorder, actor, logger, render)
+        success += rollout(env, state_norm, goal_norm, recorder, actor, logger, render, frame_period=frame_period)
 
     if record:
         recorder.close()
@@ -125,9 +125,9 @@ def repeated_rollout(args, saves_path=os.getcwd()+"/saves", video_path=os.getcwd
 
     logger.info(f"Agent success rate: {success/args.ntests:.2f}")
 
-def rollout(env, state_norm, goal_norm, recorder, actor, logger, render):
+def rollout(env, state_norm, goal_norm, recorder, actor, logger, render, frame_period=0.04):
     state, goal, _ = unwrap_obs(env.reset())
-    render = record_and_render(env, logger, recorder, render)
+    render = record_and_render(env, logger, recorder, render, frame_period=frame_period)
 
     done = False
     early_stop = 0
@@ -136,7 +136,7 @@ def rollout(env, state_norm, goal_norm, recorder, actor, logger, render):
         action = get_action(actor, state, state_norm, goal, goal_norm)
         next_obs, reward, done, info = env.step(action)
         state, goal, _ = unwrap_obs(next_obs)
-        render = record_and_render(env, logger, recorder, render)
+        render = record_and_render(env, logger, recorder, render, frame_period=frame_period)
 
         early_stop = (early_stop + 1) if not reward else 0
         
