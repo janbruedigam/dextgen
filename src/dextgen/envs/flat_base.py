@@ -55,7 +55,6 @@ class FlatBase(dextgen.envs.robot_env.RobotEnv):
         self.object_name = object_name
         self.gripper_init_range = np.array([0.05, 0.1])  # Admissable range from gripper_init_pos
         self.gripper_start_pos = None  # Current starting position of the gripper
-        self.height_offset = 0.43
         self.goal_max_height = 0.3
         self.initial_qpos = initial_qpos
         self.early_stop_ok = True  # Flag to prevent an early stop
@@ -71,6 +70,10 @@ class FlatBase(dextgen.envs.robot_env.RobotEnv):
             n_actions=n_actions,
             initial_qpos=initial_qpos,
         )
+        if "table0" in self.sim.model.body_names:
+            self.height_offset = self.sim.data.get_body_xpos("table0")[2] + 0.33
+        else:
+            self.height_offset = 0.03
         self.object_init_size = {}  # Save object sizes before modification
 
     def compute_reward(self, achieved_goal: np.ndarray, goal: np.ndarray, _) -> np.ndarray:

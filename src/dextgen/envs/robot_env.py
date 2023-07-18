@@ -57,6 +57,11 @@ class RobotEnv(gym.GoalEnv):
             "video.frames_per_second": int(np.round(1.0 / self.dt)),
         }
 
+        if "table0" in self.sim.model.body_names:
+            self.height_offset = self.sim.data.get_body_xpos("table0")[2] + 0.33
+        else:
+            self.height_offset = 0.03
+
         self.seed(1)
         self._env_setup(initial_qpos=initial_qpos)
         self.initial_state = copy.deepcopy(self.sim.get_state())

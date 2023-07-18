@@ -4,7 +4,7 @@
 	<include file="assets.xml"></include>
 	
 	<worldbody>
-		<include file="common.xml"></include>
+		<include file="flat_common.xml"></include>
 
 		<include file="robot.xml"></include>
 		
