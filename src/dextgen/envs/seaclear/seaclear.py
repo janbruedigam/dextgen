@@ -52,10 +52,10 @@ class SeaClear(FlatBase):
         assert action.shape == (self.n_actions,)
         action = (action.copy())  # ensure that we don't change the action outside of this scope
         pos_ctrl, rot_ctrl, gripper_ctrl = action[:3], action[3], action[4]
-        pos_ctrl *= 0.05  # limit maximum change in position
+        pos_ctrl *= 0.01  # limit maximum change in position
         pos_ctrl += self.mocap_offset
         rot_ctrl = axisangle2quat(0, 0, 1, np.pi * rot_ctrl)
-        rot_ctrl *= 0.05  # limit maximum change in orientation
+        rot_ctrl *= 0.01  # limit maximum change in orientation
         gripper_ctrl = np.array([gripper_ctrl, gripper_ctrl])
         action = np.concatenate([pos_ctrl, rot_ctrl, gripper_ctrl])
 

@@ -35,7 +35,7 @@ class UnevenPJFixedCube(UnevenPJBase, utils.EzPickle):
         action = (action.copy())  # ensure that we don't change the action outside of this scope
         pos_ctrl, gripper_ctrl = action[:3], action[3]
 
-        pos_ctrl *= 0.05  # limit maximum change in position
+        pos_ctrl *= 0.01  # limit maximum change in position
         rot_ctrl = np.array([1., 0., 1., 0.])
         pose_ctrl = np.concatenate([pos_ctrl, rot_ctrl])
 

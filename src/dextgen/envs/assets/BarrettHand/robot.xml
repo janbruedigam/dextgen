@@ -4,7 +4,7 @@
 	</body>
 
     <body name="base_link" pos="0. 0 -0.3">
-        <geom type="box" size="0.15 0.15 0.3" rgba="1 1 1 1" contype="0" conaffinity="0"></geom>
+        <geom type="box" size="0.125 0.125 0.3" rgba="1 1 1 1" contype="0" conaffinity="0"></geom>
     
         <body name="panda_link0" childclass="panda" pos="0.05 0 0.3">
             <inertial pos="0 0 0" quat="1 0 0 0" mass="3.06" diaginertia="0.3 0.3 0.3" />

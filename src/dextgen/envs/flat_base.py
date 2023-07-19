@@ -48,14 +48,14 @@ class FlatBase(dextgen.envs.robot_env.RobotEnv):
         self.init_random = init_random
         self.gripper_extra_height = gripper_extra_height
         self.gripper_init_pos = None
-        self.object_range = np.array([0.1, 0.15])  # Admissible object range from the table center
-        self.target_range = 0.15  # Admissible target range from the table center
+        self.object_range = np.array([0.20, 0.20])  # Admissible object range from the table center
+        self.target_range = 0.20  # Admissible target range from the table center
         self.target_threshold = 0.05  # Range tolerance for task completion
         self.n_actions = n_actions
         self.object_name = object_name
         self.gripper_init_range = np.array([0.05, 0.1])  # Admissable range from gripper_init_pos
         self.gripper_start_pos = None  # Current starting position of the gripper
-        self.goal_max_height = 0.3
+        self.goal_max_height = 0.25
         self.initial_qpos = initial_qpos
         self.early_stop_ok = True  # Flag to prevent an early stop
         self._reset_sim_state = None

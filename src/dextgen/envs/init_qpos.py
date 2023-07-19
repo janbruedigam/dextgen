@@ -6,7 +6,7 @@ DEFAULT_INITIAL_QPOS_PJ = {
     "panda_joint4": -2.4,
     "panda_joint5": 0,
     "panda_joint6": 2.8,
-    "panda_joint7": 0,
+    "panda_joint7": 3.1415/4,
     # Hand
     "robot0:r_gripper_finger_joint": 0.02,
     "robot0:l_gripper_finger_joint": 0.02,
@@ -25,7 +25,7 @@ DEFAULT_INITIAL_QPOS_Barrett = {
     "panda_joint4": -2.4,
     "panda_joint5": 0,
     "panda_joint6": 2.8,
-    "panda_joint7": 0,
+    "panda_joint7": 3.1415/4,
     # Hand
     "robot0:finger1_prox_joint": 2,
     "robot0:finger2_prox_joint": 2,
@@ -54,7 +54,7 @@ DEFAULT_INITIAL_QPOS_SH = {
     "panda_joint4": -2.,
     "panda_joint5": 0,
     "panda_joint6": 2.8,
-    "panda_joint7": 0,
+    "panda_joint7": 3.1415/4,
     # ShadowHand
     "robot0:WRJ1": -0.1651,
     "robot0:WRJ0": -0.3197,
