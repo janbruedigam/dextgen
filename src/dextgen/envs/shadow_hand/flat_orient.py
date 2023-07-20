@@ -68,10 +68,10 @@ class FlatSHOrient(FlatSHBase, utils.EzPickle):
         assert action.shape == (32,)  # At this point, the action should always have full dimension
         pos_ctrl, rot_ctrl, hand_ctrl = action[:3], action[3:12], action[12:]
 
-        pos_ctrl *= 0.01  # limit maximum change in position
+        pos_ctrl *= 0.02  # limit maximum change in position
         # Transform rot_ctrl from matrix to quaternion
         rot_ctrl = mat2quat(rot_ctrl.reshape(3, 3))
-        rot_ctrl *= 0.01  # limit maximum change in orientation
+        rot_ctrl *= 0.02  # limit maximum change in orientation
         pose_ctrl = np.concatenate([pos_ctrl, rot_ctrl])
 
         # Apply action to simulation.

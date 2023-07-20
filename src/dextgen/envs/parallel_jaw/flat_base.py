@@ -55,11 +55,11 @@ class FlatPJBase(FlatBase):
         action = (action.copy())  # ensure that we don't change the action outside of this scope
         pos_ctrl, rot_ctrl, gripper_ctrl = action[:3], action[3:12], action[12]
 
-        pos_ctrl *= 0.01  # limit maximum change in position
+        pos_ctrl *= 0.02  # limit maximum change in position
         # Transform rot_ctrl from matrix to quaternion
         rot_ctrl = mat2quat(rot_ctrl.reshape(3, 3))
         if not self._full_orient_ctrl:
-            rot_ctrl *= 0.01  # limit maximum change in orientation
+            rot_ctrl *= 0.02  # limit maximum change in orientation
         pose_ctrl = np.concatenate([pos_ctrl, rot_ctrl])
 
         # Apply action to simulation.
