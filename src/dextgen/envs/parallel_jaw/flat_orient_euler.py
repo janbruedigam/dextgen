@@ -75,7 +75,7 @@ class FlatPJOrientEuler(FlatPJBase, utils.EzPickle):
         # Transform rot_ctrl from euler to quaternion
         rot_ctrl *= np.array([1., 1., 0.5]) * np.pi  # a and b in [-pi, pi], g in [-pi/2, pi/2]
         rot_ctrl = euler2quat(rot_ctrl)
-        rot_ctrl *= 0.02  # limit maximum change in orientation
+        rot_ctrl *= 0.04  # limit maximum change in orientation
         gripper_ctrl = np.array([gripper_ctrl, gripper_ctrl])
         pose_ctrl = np.concatenate([pos_ctrl, rot_ctrl])
 

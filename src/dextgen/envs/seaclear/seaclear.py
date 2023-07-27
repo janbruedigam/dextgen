@@ -55,7 +55,7 @@ class SeaClear(FlatBase):
         pos_ctrl *= 0.02  # limit maximum change in position
         pos_ctrl += self.mocap_offset
         rot_ctrl = axisangle2quat(0, 0, 1, np.pi * rot_ctrl)
-        rot_ctrl *= 0.02  # limit maximum change in orientation
+        rot_ctrl *= 0.04  # limit maximum change in orientation
         gripper_ctrl = np.array([gripper_ctrl, gripper_ctrl])
         action = np.concatenate([pos_ctrl, rot_ctrl, gripper_ctrl])
 

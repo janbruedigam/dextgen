@@ -71,7 +71,7 @@ class FlatSHOrient(FlatSHBase, utils.EzPickle):
         pos_ctrl *= 0.02  # limit maximum change in position
         # Transform rot_ctrl from matrix to quaternion
         rot_ctrl = mat2quat(rot_ctrl.reshape(3, 3))
-        rot_ctrl *= 0.02  # limit maximum change in orientation
+        rot_ctrl *= 0.04  # limit maximum change in orientation
         pose_ctrl = np.concatenate([pos_ctrl, rot_ctrl])
 
         # Apply action to simulation.

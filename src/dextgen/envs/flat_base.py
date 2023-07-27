@@ -64,6 +64,7 @@ class FlatBase(dextgen.envs.robot_env.RobotEnv):
         self.object_size_multiplier = object_size_multiplier
         assert object_size_range >= 0
         self.object_size_range = object_size_range
+        self.object_init_size = {}  # Save object sizes before modification
         super().__init__(
             model_path=model_xml_path,
             n_substeps=self.n_substeps,
@@ -74,7 +75,6 @@ class FlatBase(dextgen.envs.robot_env.RobotEnv):
             self.height_offset = self.sim.data.get_body_xpos("table0")[2] + 0.33
         else:
             self.height_offset = 0.03
-        self.object_init_size = {}  # Save object sizes before modification
 
     def compute_reward(self, achieved_goal: np.ndarray, goal: np.ndarray, _) -> np.ndarray:
         """Compute the agent reward for the achieved goal.
@@ -294,5 +294,5 @@ class FlatBase(dextgen.envs.robot_env.RobotEnv):
             geom_size = self.object_init_size[self.object_name]
             if self.object_size_range > 0:
                 geom_range = self.object_size_range
-                geom_size += self.np_random.uniform(-geom_range, geom_range, size=2)
+                geom_size += self.np_random.uniform(-geom_range, geom_range, size=3)
             self.sim.model.geom_size[idx] = geom_size

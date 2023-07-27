@@ -76,7 +76,7 @@ class FlatPJOrientAxisAngle(FlatPJBase, utils.EzPickle):
         rot_ctrl[3] = rot_ctrl[3] * np.pi  # Map to angle from [-pi to pi]
         rot_ctrl[:3] /= np.linalg.norm(rot_ctrl[:3])
         rot_ctrl = axisangle2quat(*rot_ctrl)
-        rot_ctrl *= 0.02  # limit maximum change in orientation
+        rot_ctrl *= 0.04  # limit maximum change in orientation
         gripper_ctrl = np.array([gripper_ctrl, gripper_ctrl])
         pose_ctrl = np.concatenate([pos_ctrl, rot_ctrl])
 

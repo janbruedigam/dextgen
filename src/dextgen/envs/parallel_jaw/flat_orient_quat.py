@@ -74,7 +74,7 @@ class FlatPJOrientQuat(FlatPJBase, utils.EzPickle):
         pos_ctrl *= 0.02  # limit maximum change in position
         # Transform rot_ctrl to quaternion
         rot_ctrl = rot_ctrl / np.linalg.norm(rot_ctrl)
-        rot_ctrl *= 0.02  # limit maximum change in orientation
+        rot_ctrl *= 0.04  # limit maximum change in orientation
         gripper_ctrl = np.array([gripper_ctrl, gripper_ctrl])
         pose_ctrl = np.concatenate([pos_ctrl, rot_ctrl])
 
