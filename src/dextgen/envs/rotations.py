@@ -322,6 +322,9 @@ def quat_mul(q0: np.ndarray, q1: np.ndarray) -> np.ndarray:
     assert q.shape == q0.shape
     return q
 
+def quat_vec_rotate(q: np.ndarray, v: np.array) -> np.ndarray:
+    return quat_mul(quat_mul(q,np.concatenate((np.array([0]),v))),quat_conjugate(q))[1:4]
+
 
 def quat_conjugate(q: np.array) -> np.array:
     """Conjugate Quaternions.
@@ -336,6 +339,33 @@ def quat_conjugate(q: np.array) -> np.array:
     inv_q[..., 0] *= -1
     return inv_q
 
+def exp_quat(q: np.ndarray) -> np.ndarray:
+    u = q[1:4]
+    normu = np.linalg.norm(u)
+    if normu == 0:
+        sgnu = np.array([0,0,0])
+    else:
+        sgnu = u/normu
+
+    return np.exp(q[0])*np.concatenate((np.array([np.cos(normu)]),sgnu*np.sin(normu)))
+
+def log_quat(q: np.ndarray) -> np.ndarray: # assumes unit quaternion
+    u = q[1:4]
+    normu = np.linalg.norm(u)
+    if normu == 0:
+        sgnu = np.array([0,0,0])
+    else:
+        sgnu = u/normu
+
+    if q[0] > 1:
+        argp = 0
+    else:
+        argp = np.arccos(q[0])
+
+    return np.concatenate((np.array([0]),sgnu*argp))
+
+def quat_to_pow(q: np.ndarray, n) -> np.ndarray:
+    return exp_quat(n*log_quat(q))
 
 def vec2quat(x: np.ndarray) -> np.ndarray:
     """Convert vectors to UnitQuaternions.
