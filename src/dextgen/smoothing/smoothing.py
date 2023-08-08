@@ -5,12 +5,13 @@ from dextgen.envs.rotations import quat_mul, quat_conjugate, quat_vec_rotate, qu
 class Smoothing():
     """Savitzky Golay Filter"""
 
-    def __init__(self, window_size=21, order=4, deriv=0, rate=1):
+    def __init__(self, smooth=True, window_size=21, order=4, deriv=0, rate=1):
         if window_size % 2 != 1 or window_size < 1:
             raise TypeError("window_size size must be a positive odd number")
         if window_size < order + 2:
             raise TypeError("window_size is too small for the polynomials order")
         
+        self.smooth = smooth
         self.half_window = (window_size -1) // 2
 
         order_range = range(order+1)
@@ -33,24 +34,25 @@ class Smoothing():
         sim_object_to_sim_ee_rot = quat_mul(quat_conjugate(sim_object_rot),sim_trajectory_rot[-1])
         sim_object_to_or_rot = quat_mul(quat_conjugate(sim_object_rot),real_object_rot)
 
-        delta_pos = -sim_object_to_sim_ee_pos + sim_object_to_or_pos + quat_vec_rotate(real_object_rot*quat_conjugate(sim_object_rot),sim_object_to_sim_ee_pos) 
+        delta_pos = -sim_object_to_sim_ee_pos + sim_object_to_or_pos + quat_vec_rotate(quat_mul(real_object_rot,quat_conjugate(sim_object_rot)),sim_object_to_sim_ee_pos)
         delta_rot = quat_mul(quat_mul(quat_conjugate(sim_object_to_sim_ee_rot),sim_object_to_or_rot),sim_object_to_sim_ee_rot)
 
         real_trajectory_pos = [sim_trajectory_pos[i] + delta_pos*i/N for i in range(0, N)]
         real_trajectory_rot = [quat_mul(sim_trajectory_rot[i],quat_to_pow(delta_rot,i/N)) for i in range(0, N)]
 
-        # real_trajectory_pos_smooth_x = self.filter([arr[0] for arr in real_trajectory_pos])
-        # real_trajectory_pos_smooth_y = self.filter([arr[1] for arr in real_trajectory_pos])
-        # real_trajectory_pos_smooth_z = self.filter([arr[2] for arr in real_trajectory_pos])
-        # real_trajectory_pos_smooth = [np.array([real_trajectory_pos_smooth_x[i],real_trajectory_pos_smooth_y[i],real_trajectory_pos_smooth_z[i]]) for i in range(0, N)]
+        if self.smooth:
+            real_trajectory_pos_smooth_x = self.filter([arr[0] for arr in real_trajectory_pos])
+            real_trajectory_pos_smooth_y = self.filter([arr[1] for arr in real_trajectory_pos])
+            real_trajectory_pos_smooth_z = self.filter([arr[2] for arr in real_trajectory_pos])
+            real_trajectory_pos_smooth = [np.array([real_trajectory_pos_smooth_x[i],real_trajectory_pos_smooth_y[i],real_trajectory_pos_smooth_z[i]]) for i in range(0, N)]
 
-        # real_trajectory_rot_aa = [log_quat(arr)[1:4] for arr in real_trajectory_rot]
+            real_trajectory_rot_aa = [log_quat(arr)[1:4] for arr in real_trajectory_rot]
 
-        # real_trajectory_rot_smooth_x = self.filter([arr[0] for arr in real_trajectory_rot_aa])
-        # real_trajectory_rot_smooth_y = self.filter([arr[1] for arr in real_trajectory_rot_aa])
-        # real_trajectory_rot_smooth_z = self.filter([arr[2] for arr in real_trajectory_rot_aa])
-        # real_trajectory_rot_smooth = [exp_quat(np.concatenate((np.array([0]),np.array([real_trajectory_rot_smooth_x[i],real_trajectory_rot_smooth_y[i],real_trajectory_rot_smooth_z[i]])))) for i in range(0, N)]
+            real_trajectory_rot_smooth_x = self.filter([arr[0] for arr in real_trajectory_rot_aa])
+            real_trajectory_rot_smooth_y = self.filter([arr[1] for arr in real_trajectory_rot_aa])
+            real_trajectory_rot_smooth_z = self.filter([arr[2] for arr in real_trajectory_rot_aa])
+            real_trajectory_rot_smooth = [exp_quat(np.concatenate((np.array([0]),np.array([real_trajectory_rot_smooth_x[i],real_trajectory_rot_smooth_y[i],real_trajectory_rot_smooth_z[i]])))) for i in range(0, N)]
 
-        return real_trajectory_pos, real_trajectory_rot
-
-    
+            return real_trajectory_pos_smooth, real_trajectory_rot_smooth
+        else:
+            return real_trajectory_pos, real_trajectory_rot
