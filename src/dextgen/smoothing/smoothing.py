@@ -19,7 +19,7 @@ class Smoothing():
         self.m = np.linalg.pinv(b).A[deriv] * rate**deriv * factorial(deriv)
         
 
-    def filter(self, y):
+    def filter_signal(self, y):
         # pad the signal at the extremes with values taken from the signal itself
         firstvals = y[0] - (y[1:self.half_window+1][::-1] - y[0])
         lastvals = y[-1] - (y[-self.half_window-1:-1][::-1] - y[-1])
@@ -27,32 +27,48 @@ class Smoothing():
 
         return np.convolve(self.m[::-1], y, mode='valid')
     
-    def smoothing(self, sim_trajectory_pos, sim_trajectory_rot, sim_object_pos, sim_object_rot, real_object_pos, real_object_rot):
-        N = len(sim_trajectory_pos)
-        sim_object_to_sim_ee_pos = sim_trajectory_pos[-1] - sim_object_pos
-        sim_object_to_or_pos = real_object_pos - sim_object_pos
-        sim_object_to_sim_ee_rot = quat_mul(quat_conjugate(sim_object_rot),sim_trajectory_rot[-1])
-        sim_object_to_or_rot = quat_mul(quat_conjugate(sim_object_rot),real_object_rot)
+    def filter_trajectory(self, trajectory):
+        smoothed_x = self.filter_signal([arr[0] for arr in trajectory])
+        smoothed_y = self.filter_signal([arr[1] for arr in trajectory])
+        smoothed_z = self.filter_signal([arr[2] for arr in trajectory])
+        smoothed = [np.array([smoothed_x[i],smoothed_y[i],smoothed_z[i]]) for i in range(0, len(trajectory))]
 
-        delta_pos = -sim_object_to_sim_ee_pos + sim_object_to_or_pos + quat_vec_rotate(quat_mul(real_object_rot,quat_conjugate(sim_object_rot)),sim_object_to_sim_ee_pos)
-        delta_rot = quat_mul(quat_mul(quat_conjugate(sim_object_to_sim_ee_rot),sim_object_to_or_rot),sim_object_to_sim_ee_rot)
+        return smoothed
+    
+    def smoothing(self, sim_traj_to_obj_pos, sim_traj_to_obj_rot, sim_traj_to_goal_pos, sim_traj_to_goal_rot, sim_obj_pos, sim_obj_rot, real_obj_pos, real_obj_rot):
+        N_to_obj = len(sim_traj_to_obj_pos)
+        N_to_goal = len(sim_traj_to_goal_pos)
 
-        real_trajectory_pos = [sim_trajectory_pos[i] + delta_pos*i/N for i in range(0, N)]
-        real_trajectory_rot = [quat_mul(sim_trajectory_rot[i],quat_to_pow(delta_rot,i/N)) for i in range(0, N)]
+        sim_obj_to_sim_ee_pos = sim_traj_to_obj_pos[-1] - sim_obj_pos
+        sim_obj_to_or_pos = real_obj_pos - sim_obj_pos
+        sim_obj_to_sim_ee_rot = quat_mul(quat_conjugate(sim_obj_rot),sim_traj_to_obj_rot[-1])
+        sim_obj_to_or_rot = quat_mul(quat_conjugate(sim_obj_rot),real_obj_rot)
+
+        delta_to_obj_pos = -sim_obj_to_sim_ee_pos + sim_obj_to_or_pos + quat_vec_rotate(quat_mul(real_obj_rot,quat_conjugate(sim_obj_rot)),sim_obj_to_sim_ee_pos)
+        delta_to_obj_rot = quat_mul(quat_mul(quat_conjugate(sim_obj_to_sim_ee_rot),sim_obj_to_or_rot),sim_obj_to_sim_ee_rot)
+
+        real_traj_to_obj_pos = [sim_traj_to_obj_pos[i] + delta_to_obj_pos*i/(N_to_obj-1) for i in range(0, N_to_obj)]
+        real_traj_to_obj_rot = [quat_mul(sim_traj_to_obj_rot[i],quat_to_pow(delta_to_obj_rot,i/(N_to_obj-1))) for i in range(0, N_to_obj)]
+
+        delta_to_goal_pos = real_traj_to_obj_pos[-1] - sim_traj_to_goal_pos[0]
+        delta_to_goal_rot = quat_mul(quat_conjugate(sim_traj_to_goal_rot[0]),real_traj_to_obj_rot[-1])
+
+        real_traj_to_goal_pos = [sim_traj_to_goal_pos[i] + delta_to_goal_pos*(N_to_goal-1-i)/(N_to_goal-1) for i in range(0, N_to_goal)]
+        real_traj_to_goal_rot = [quat_mul(sim_traj_to_goal_rot[i],quat_to_pow(delta_to_goal_rot,(N_to_goal-1-i)/(N_to_goal-1))) for i in range(0, N_to_goal)]
 
         if self.smooth:
-            real_trajectory_pos_smooth_x = self.filter([arr[0] for arr in real_trajectory_pos])
-            real_trajectory_pos_smooth_y = self.filter([arr[1] for arr in real_trajectory_pos])
-            real_trajectory_pos_smooth_z = self.filter([arr[2] for arr in real_trajectory_pos])
-            real_trajectory_pos_smooth = [np.array([real_trajectory_pos_smooth_x[i],real_trajectory_pos_smooth_y[i],real_trajectory_pos_smooth_z[i]]) for i in range(0, N)]
+            real_traj_to_obj_pos_smooth = self.filter_trajectory(real_traj_to_obj_pos)
 
-            real_trajectory_rot_aa = [log_quat(arr)[1:4] for arr in real_trajectory_rot]
+            real_traj_to_obj_rot_aa = [log_quat(arr)[1:4] for arr in real_traj_to_obj_rot]
+            real_traj_to_obj_rot_aa_smooth = self.filter_trajectory(real_traj_to_obj_rot_aa)
+            real_traj_to_obj_rot_smooth = [exp_quat(np.concatenate((np.array([0]),real_traj_to_obj_rot_aa_smooth[i]))) for i in range(0, N_to_obj)]
 
-            real_trajectory_rot_smooth_x = self.filter([arr[0] for arr in real_trajectory_rot_aa])
-            real_trajectory_rot_smooth_y = self.filter([arr[1] for arr in real_trajectory_rot_aa])
-            real_trajectory_rot_smooth_z = self.filter([arr[2] for arr in real_trajectory_rot_aa])
-            real_trajectory_rot_smooth = [exp_quat(np.concatenate((np.array([0]),np.array([real_trajectory_rot_smooth_x[i],real_trajectory_rot_smooth_y[i],real_trajectory_rot_smooth_z[i]])))) for i in range(0, N)]
+            real_traj_to_goal_pos_smooth = self.filter_trajectory(real_traj_to_goal_pos)
 
-            return real_trajectory_pos_smooth, real_trajectory_rot_smooth
+            real_traj_to_goal_rot_aa = [log_quat(arr)[1:4] for arr in real_traj_to_goal_rot]
+            real_traj_to_goal_rot_aa_smooth = self.filter_trajectory(real_traj_to_goal_rot_aa)
+            real_traj_to_goal_rot_smooth = [exp_quat(np.concatenate((np.array([0]),real_traj_to_goal_rot_aa_smooth[i]))) for i in range(0, N_to_goal)]
+
+            return real_traj_to_obj_pos_smooth, real_traj_to_obj_rot_smooth, real_traj_to_goal_pos_smooth, real_traj_to_goal_rot_smooth
         else:
-            return real_trajectory_pos, real_trajectory_rot
+            return real_traj_to_obj_pos, real_traj_to_obj_rot, real_traj_to_goal_pos, real_traj_to_goal_rot
