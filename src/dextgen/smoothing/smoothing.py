@@ -40,12 +40,15 @@ class Smoothing():
         N_to_goal = len(sim_traj_to_goal_pos)
         
         # Fix quaternion signs
-        sim_traj_to_obj_rot.insert(0, sim_traj_to_obj_rot[0]) # dummy value added for easy computation        
-        sim_traj_to_obj_rot = [closest_quat_sign(sim_traj_to_obj_rot[i],sim_traj_to_obj_rot[i+1]) for i in range(0,N_to_obj)]
-        sim_obj_rot = closest_quat_sign(sim_traj_to_obj_rot[-1],sim_obj_rot)
-        real_obj_rot = closest_quat_sign(sim_obj_rot,real_obj_rot)
-        sim_traj_to_goal_rot.insert(0,sim_traj_to_obj_rot[-1]) # make close to last object trajectory rot
-        sim_traj_to_goal_rot = [closest_quat_sign(sim_traj_to_goal_rot[i],sim_traj_to_goal_rot[i+1]) for i in range(0,N_to_goal)]        
+        N_to_obj = len(sim_traj_to_obj_pos)
+        N_to_goal = len(sim_traj_to_goal_pos)
+        for i in range(0,N_to_obj-1):
+            sim_traj_to_obj_rot[i+1] = closest_quat_sign(sim_traj_to_obj_rot[i],sim_traj_to_obj_rot[i+1])
+        sim_obj_rot = closest_quat_sign(sim_traj_to_obj_rot[-1],sim_obj_rot) # make close to last object trajectory rot
+        real_obj_rot = closest_quat_sign(sim_obj_rot,real_obj_rot) # make close to last object trajectory rot
+        sim_traj_to_goal_rot[0] = closest_quat_sign(sim_traj_to_obj_rot[-1],sim_traj_to_goal_rot[0]) # make close to last object trajectory rot
+        for i in range(0,N_to_goal-1):
+            sim_traj_to_goal_rot[i+1] = closest_quat_sign(sim_traj_to_goal_rot[i],sim_traj_to_goal_rot[i+1]) 
 
         sim_obj_to_sim_ee_pos = sim_traj_to_obj_pos[-1] - sim_obj_pos
         sim_obj_to_or_pos = real_obj_pos - sim_obj_pos
