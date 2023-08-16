@@ -1,6 +1,6 @@
 import numpy as np
 from math import factorial
-from dextgen.envs.rotations import quat_mul, quat_conjugate, quat_vec_rotate, quat_to_pow, exp_quat, log_quat
+from dextgen.envs.rotations import quat_mul, quat_conjugate, quat_vec_rotate, quat_to_pow, exp_quat, log_quat, closest_quat_sign
 
 class Smoothing():
     """Savitzky Golay Filter"""
@@ -38,6 +38,14 @@ class Smoothing():
     def smoothing(self, sim_traj_to_obj_pos, sim_traj_to_obj_rot, sim_traj_to_goal_pos, sim_traj_to_goal_rot, sim_obj_pos, sim_obj_rot, real_obj_pos, real_obj_rot):
         N_to_obj = len(sim_traj_to_obj_pos)
         N_to_goal = len(sim_traj_to_goal_pos)
+        
+        # Fix quaternion signs
+        sim_traj_to_obj_rot.insert(0, sim_traj_to_obj_rot[0]) # dummy value added for easy computation        
+        sim_traj_to_obj_rot = [closest_quat_sign(sim_traj_to_obj_rot[i],sim_traj_to_obj_rot[i+1]) for i in range(0,N_to_obj)]
+        sim_obj_rot = closest_quat_sign(sim_traj_to_obj_rot[-1],sim_obj_rot)
+        real_obj_rot = closest_quat_sign(sim_obj_rot,real_obj_rot)
+        sim_traj_to_goal_rot.insert(0,sim_traj_to_obj_rot[-1]) # make close to last object trajectory rot
+        sim_traj_to_goal_rot = [closest_quat_sign(sim_traj_to_goal_rot[i],sim_traj_to_goal_rot[i+1]) for i in range(0,N_to_goal)]        
 
         sim_obj_to_sim_ee_pos = sim_traj_to_obj_pos[-1] - sim_obj_pos
         sim_obj_to_or_pos = real_obj_pos - sim_obj_pos

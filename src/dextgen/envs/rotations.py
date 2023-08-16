@@ -287,6 +287,13 @@ def quat2mat(quat: np.ndarray) -> np.ndarray:
     mat[..., 2, 2] = 1.0 - (xX + yY)
     return np.where((Nq > _FLOAT_EPS)[..., np.newaxis, np.newaxis], mat, np.eye(3))
 
+def closest_quat_sign(q0,q1):
+    """Find the sign for q1 that is closest to q0 to avoid sign flips"""
+    s = q0[0]*q1[0] + q0[1]*q1[1] + q0[2]*q1[2] + q0[3]*q1[3]
+    if s < 0:
+        return -q1
+    else:
+        return q1
 
 def quat_mul(q0: np.ndarray, q1: np.ndarray) -> np.ndarray:
     """Multiply Quaternions.
