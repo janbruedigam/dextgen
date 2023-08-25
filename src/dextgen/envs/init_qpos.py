@@ -36,10 +36,10 @@ DEFAULT_INITIAL_QPOS_Barrett = {
     "robot0:finger2_dist_joint": 0.40724,
     "robot0:finger3_dist_joint": 0.40724,
     # Objects
-    "cube:joint": [.1, -.1, .025, 1., 0, 0, 0],
-    "cylinder:joint": [-.1, .1, .025, 1., 0, 0, 0],
-    "sphere:joint": [.1, .1, .025, 1., 0, 0, 0],
-    "mesh:joint": [-.1, -.1, .025, 1., 0, 0, 0],
+    "cube:joint": [.1, -.1, .04, 1., 0, 0, 0],
+    "cylinder:joint": [-.1, .1, .04, 1., 0, 0, 0],
+    "sphere:joint": [.1, .1, .04, 1., 0, 0, 0],
+    "mesh:joint": [-.1, -.1, .04, 1., 0, 0, 0],
 }
 
 DEFAULT_INITIAL_QPOS_SH = {
