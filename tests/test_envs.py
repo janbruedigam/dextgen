@@ -2,10 +2,10 @@ import random
 
 import pytest
 import gym
-import envs  # noqa: F401
+import dextgen.envs # noqa: F401
 
 
-@pytest.mark.parametrize("env", [e for e in envs.available_envs])
+@pytest.mark.parametrize("env", [e for e in dextgen.envs.available_envs])
 def test_env(env):
     env = gym.make(env)
     env.reset()
@@ -13,7 +13,7 @@ def test_env(env):
         env.step(env.action_space.sample())
 
 
-@pytest.mark.parametrize("env", [e for e in envs.available_envs if "SH" in e])
+@pytest.mark.parametrize("env", [e for e in dextgen.envs.available_envs if "SH" in e])
 def test_shadowhand_eigen(env):
     env = gym.make(env, n_eigengrasps=random.randint(1, 20))
     env.reset()
@@ -21,7 +21,7 @@ def test_shadowhand_eigen(env):
         env.step(env.action_space.sample())
 
 
-@pytest.mark.parametrize("env", [e for e in envs.available_envs if "Cube" in e])
+@pytest.mark.parametrize("env", [e for e in dextgen.envs.available_envs if "Cube" in e])
 def test_contact_info(env):
     env = gym.make(env)
     env.reset()

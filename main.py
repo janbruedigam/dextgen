@@ -9,9 +9,9 @@ import numpy as np
 import torch
 from mpi4py import MPI
 
-import envs  # Import registers environments with gym  # noqa: F401
-from mp_rl.core.ddpg import DDPG
-from parse_args import parse_args
+import dextgen.envs # Import registers environments with gym  # noqa: F401
+from dextgen.mp_rl.core.ddpg import DDPG
+from dextgen.parse_args import parse_args
 
 
 def set_seed(env: gym.Env, seed: int):
